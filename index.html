@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta-Tags -->
+  <title>Hundehoroskop Premium – Amastria</title>
+  <meta name="description" content="Erstellen Sie das persönliche Premium-Hundehoroskop für Ihre Fellnase! Finden Sie Sternzeichen, Mondzeichen, Aszendenten, tiefgründigen Charakter und Herrchen-Kompatibilität heraus. Perfekt für alle Hundehalter:innen.">
+  <meta name="keywords" content="Hundehoroskop, Premium Hundehoroskop, Sternzeichen Hund, Tierkreiszeichen Hund, Hund Astrologie, Hundecharakter berechnen, Tierschutzhund Sternzeichen, Horoskop Rüde Hündin, Amastria">
+  <meta name="author" content="Amastria">
+  <meta name="robots" content="index, follow">
+
+  <!-- OpenGraph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.hundehoroskop.com/">
+  <meta property="og:title" content="Hundehoroskop Premium – Amastria">
+  <meta property="og:description" content="Erstellen Sie das persönliche Premium-Hundehoroskop für Ihre Fellnase! Finden Sie Sternzeichen, Mondzeichen, Aszendenten, Charakter und Herrchen-Kompatibilität heraus.">
+  <meta property="og:image" content="https://www.hundehoroskop.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.hundehoroskop.com/">
+  <meta property="twitter:title" content="Hundehoroskop Premium – Amastria">
+  <meta property="twitter:description" content="Erstellen Sie das persönliche Premium-Hundehoroskop für Ihre Fellnase! Finden Sie Sternzeichen, Mondzeichen, Aszendenten, Charakter und Herrchen-Kompatibilität heraus.">
+  <meta property="twitter:image" content="https://www.hundehoroskop.com/assets/og-image.jpg">
+
+  <link rel="canonical" href="https://www.hundehoroskop.com/">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+  <link rel="stylesheet" href="/src/style.css">
+
+  <!-- Static JSON-LD SEO Schema -->
+  <script type="application/ld+json" id="static-seo-schema"></script>
+</head>
+<body>
+
+  <!-- Magischer Partikel-Hintergrund -->
+  <canvas id="constellations-bg"></canvas>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Kosmische Einblicke in die Seele deines Hundes</h1>
+      <p>
+        Hunde sind treue Seelenpartner, deren Charaktereigenschaften, Vorlieben und Macken oft tief im Kosmos verwurzelt sind. 
+        Berechne das personalisierte Premium-Hundehoroskop deiner Fellnase und entdecke das energetische Zusammenspiel der Sterne, 
+        die Synastrie-Verbindung zu dir sowie wertvolle astrologische Alltagstipps.
+      </p>
+    </section>
+
+    <!-- PREVIEW-SECTION SHOWING HOROSCOPE ADVANTAGES -->
+    <section class="preview-section">
+      <h2>Was du im persönlichen Premium-Hundehoroskop erfährst</h2>
+      <div class="preview-grid">
+        <!-- Card 1 -->
+        <div class="preview-card">
+          <div class="preview-icon">✨</div>
+          <h3>Die kosmische Seele</h3>
+          <p>
+            Ergründe das wahre Wesen deines Hundes. Erfahre, welche Ur-Instinkte durch sein kosmisches Element geprägt sind, was seine größten Stärken sind und wo er besondere Unterstützung braucht.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="preview-card">
+          <div class="preview-icon">💚</div>
+          <h3>Alltag & Vitalität</h3>
+          <p>
+            Erhalte astrologische Tipps für den Alltag. Verstehe, wie deine Fellnase energetisch tickt, warum sie in bestimmten Situationen ängstlich reagiert und was ihre Lebensenergie stärkt.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="preview-card">
+          <div class="preview-icon">🤝</div>
+          <h3>Eure Seelenverbindung</h3>
+          <p>
+            Entdecke eure tiefe spirituelle Verbindung. Erfahre in einer astrologischen Synastrie-Analyse, wie eure Energien zusammenwirken und was du von deiner Fellnase lernen kannst.
+          </p>
+        </div>
+      </div>
+      <div class="preview-cta-wrapper" style="margin-top: 35px; text-align: center;">
+        <button type="button" class="btn-sample-highlight" id="btn-load-sample">
+          Muster Hundehoroskop
+        </button>
+      </div>
+    </section>
+
+    <!-- HOROSKOP-RECHNER SECTION HEADER -->
+    <header class="calculator-section-header">
+      <h2>Dein persönliches Hundehoroskop</h2>
+      <p class="calculator-subline">
+        Erhalte in wenigen Schritten eine tiefgründige Analyse über Charakter, Vitalität und eure Seelenverbindung.
+      </p>
+      <div class="calculator-price-badge">
+        <span>✨</span> CHF 19.90 &bull; Einmaliger Kauf &bull; PDF-Sofort-Download
+      </div>
+    </header>
+
+    <!-- HOROSKOP-RECHNER -->
+    <main class="calculator-wrapper" style="max-width: 850px; margin-top: 0;">
+      <div class="card-glass" id="calculator-card">
+        
+        <form id="horoscope-form">
+          <!-- Wizard Progress Indicator -->
+          <div class="wizard-progress">
+            <div class="wizard-step-indicator active" data-step-indicator="1">
+              <div class="wizard-step-node">1</div>
+              <div class="wizard-step-label">Hund</div>
+            </div>
+            <div class="wizard-step-indicator" data-step-indicator="2">
+              <div class="wizard-step-node">2</div>
+              <div class="wizard-step-label">Sterne</div>
+            </div>
+            <div class="wizard-step-indicator" data-step-indicator="3">
+              <div class="wizard-step-node">3</div>
+              <div class="wizard-step-label">Halter</div>
+            </div>
+          </div>
+
+          <!-- SCHRITT 1: DEIN HUND -->
+          <div class="form-step active" data-step="1">
+            <div class="form-section-title">
+              <span>🐾</span> DEIN HUND
+            </div>
+            <div class="form-grid" style="margin-bottom: 20px;">
+              <!-- NAME -->
+              <div class="form-group">
+                <label for="dog-name">Name des Hundes <span class="required-star">*</span></label>
+                <input type="text" id="dog-name" placeholder="z. B. Ludmilla, Bello, Rocky..." required autocomplete="off">
+                <span class="field-help-text">Für die persönliche Ansprache deines Hundes im Horoskop-Buch.</span>
+              </div>
+
+              <!-- GESCHLECHT -->
+              <div class="form-group">
+                <label>Geschlecht <span class="required-star">*</span></label>
+                <div class="gender-selector">
+                  <button type="button" class="gender-btn active" id="gender-male" data-gender="m">
+                    ♂ Rüde
+                  </button>
+                  <button type="button" class="gender-btn" id="gender-female" data-gender="w">
+                    ♀ Hündin
+                  </button>
+                </div>
+                <span class="field-help-text">Beeinflusst die Pronomen und grammatikalischen Formulierungen im Text.</span>
+              </div>
+
+              <!-- RASSE -->
+              <div class="form-group form-group-full">
+                <label for="dog-breed">Rasse <span class="optional-badge">(optional)</span></label>
+                <input type="text" id="dog-breed" placeholder="z. B. Golden Retriever, Mischling..." autocomplete="off">
+                <span class="field-help-text">Verfeinert das Horoskop anhand typischer Rassenmerkmale.</span>
+              </div>
+            </div>
+            
+            <div class="wizard-buttons">
+              <button type="button" class="btn-wizard-next" data-next-step="2">
+                Weiter zu den Geburtsdaten ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- SCHRITT 2: GEBURTSDATEN -->
+          <div class="form-step" data-step="2">
+            <div class="form-section-title">
+              <span>📅</span> KOSMISCHE GEBURTSDATEN
+            </div>
+            
+            <!-- GEBURTS-MODUS (TAB-UMSCHALTER) -->
+            <div class="form-group" style="margin-bottom: 25px;">
+              <label>Geburtsdaten-Typ <span class="required-star">*</span></label>
+              <div class="birth-mode-tabs">
+                <input type="checkbox" id="rescue-checkbox" style="display: none;">
+                <button type="button" class="mode-tab-btn active" id="mode-date-btn">
+                  📅 Geburtsdatum bekannt
+                </button>
+                <button type="button" class="mode-tab-btn" id="mode-rescue-btn">
+                  🐾 Tierschutz / Geburtstag unbekannt
+                </button>
+              </div>
+            </div>
+
+            <div class="form-grid" style="margin-bottom: 20px;">
+              <!-- GEBURTSDATUM -->
+              <div class="form-group" id="birthdate-group">
+                <label for="dog-birthdate">Geburtsdatum <span class="required-star">*</span></label>
+                <input type="date" id="dog-birthdate" required>
+                <span class="field-help-text">Bestimmt sein Sternzeichen (Sonne) und das astrologische Element.</span>
+              </div>
+
+              <!-- GEBURTSZEIT -->
+              <div class="form-group" id="birthtime-group">
+                <label for="dog-birthtime">Geburtszeit <span class="optional-badge">(optional)</span></label>
+                <input type="time" id="dog-birthtime">
+              </div>
+
+              <!-- GEBURTSORT / ZÜCHTERORT -->
+              <div class="form-group form-group-full" id="birthplace-group">
+                <label for="dog-birthplace">Geburtsort / Züchter-Ort <span class="optional-badge">(optional)</span></label>
+                <div class="autocomplete-container">
+                  <input type="text" id="dog-birthplace" placeholder="z. B. Zürich, Berlin, München..." autocomplete="off">
+                  <div class="autocomplete-suggestions" id="dog-birthplace-suggestions"></div>
+                </div>
+                <span class="field-help-text">Optional – Ermöglicht die präzise Berechnung von Mondzeichen und Aszendenten.</span>
+              </div>
+            </div>
+
+            <!-- RESCUE QUIZ (TEMPERAMENT-FRAGEBOGEN) -->
+            <div class="rescue-quiz" id="rescue-quiz-container" style="margin-bottom: 35px; display: none;">
+              <p class="quiz-intro">Da das Geburtsdatum deines Schatzes unbekannt ist, ermitteln die Sterne das kosmische Element anhand seines Verhaltens. Bitte beantworte diese 3 Fragen:</p>
+              
+              <!-- Frage 1 -->
+              <div class="quiz-question">
+                <label>1. Wie verhält sich dein Hund in neuen Situationen?</label>
+                <div class="quiz-options" data-question="1">
+                  <button type="button" class="quiz-btn active" data-value="Feuer">Mutig & neugierig</button>
+                  <button type="button" class="quiz-btn" data-value="Erde">Ruhig & gelassen</button>
+                  <button type="button" class="quiz-btn" data-value="Luft">Verspielt & aufgeregt</button>
+                  <button type="button" class="quiz-btn" data-value="Wasser">Vorsichtig & anhänglich</button>
+                </div>
+              </div>
+
+              <!-- Frage 2 -->
+              <div class="quiz-question" style="margin-top: 15px;">
+                <label>2. Was ist die absolute Lieblingsbeschäftigung deines Hundes?</label>
+                <div class="quiz-options" data-question="2">
+                  <button type="button" class="quiz-btn active" data-value="Feuer">Rennen & Toben</button>
+                  <button type="button" class="quiz-btn" data-value="Erde">Kauen & Schlafen</button>
+                  <button type="button" class="quiz-btn" data-value="Luft">Schnüffeln & Erkunden</button>
+                  <button type="button" class="quiz-btn" data-value="Wasser">Kuscheln & Schmusen</button>
+                </div>
+              </div>
+
+              <!-- Frage 3 -->
+              <div class="quiz-question" style="margin-top: 15px;">
+                <label>3. Wie verhält sich dein Hund gegenüber anderen Hunden auf der Wiese?</label>
+                <div class="quiz-options" data-question="3">
+                  <button type="button" class="quiz-btn active" data-value="Feuer">Stürmisch & dominant</button>
+                  <button type="button" class="quiz-btn" data-value="Erde">Gelassen & ignorierend</button>
+                  <button type="button" class="quiz-btn" data-value="Luft">Sehr kontaktfreudig</button>
+                  <button type="button" class="quiz-btn" data-value="Wasser">Sensibel & schüchtern</button>
+                </div>
+              </div>
+
+              <!-- Geschätztes Alter -->
+              <div class="quiz-question" style="margin-top: 20px; border-top: 1px dashed rgba(255,255,255,0.06); padding-top: 15px;">
+                <label>Geschätztes Alter deines Hundes <span class="required-star">*</span></label>
+                <div class="quiz-options" id="rescue-age-container">
+                  <button type="button" class="quiz-btn active" data-value="welpe">Welpe (0-1 Jahr)</button>
+                  <button type="button" class="quiz-btn" data-value="jung">Jung (1-3 Jahre)</button>
+                  <button type="button" class="quiz-btn" data-value="adult">Adult (3-7 Jahre)</button>
+                  <button type="button" class="quiz-btn" data-value="senior">Senior (7+ Jahre)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- BESONDERE WESENSMERKMALE -->
+            <div class="form-group form-group-full" style="margin-top: 25px; margin-bottom: 20px;">
+              <label for="dog-traits">Besondere Wesensmerkmale <span class="optional-badge">(optional – Freitext)</span></label>
+              <textarea id="dog-traits" placeholder="z. B. sehr sensibel, liebt Wasser, ängstlich bei Gewitter, extrem verspielt, liebt Kinder..." rows="3"></textarea>
+              <span class="field-help-text">Optional – Hilft uns, spezifische Verhaltensmuster im Horoskop zu deuten.</span>
+            </div>
+
+            <div class="wizard-buttons">
+              <button type="button" class="btn-wizard-back" data-prev-step="1">
+                ◀ Zurück
+              </button>
+              <button type="button" class="btn-wizard-next" data-next-step="3">
+                Weiter zu deinen Angaben ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- SCHRITT 3: DU ALS HALTER -->
+          <div class="form-step" data-step="3">
+            <div class="form-section-title">
+              <span>✨</span> DU ALS HALTER
+            </div>
+
+            <div class="form-grid">
+              <!-- HALTER NAME -->
+              <div class="form-group">
+                <label for="owner-name">Dein Name <span class="required-star">*</span></label>
+                <input type="text" id="owner-name" placeholder="Name..." required autocomplete="off">
+                <span class="field-help-text">Für die persönliche Widmung im Buch.</span>
+              </div>
+
+              <!-- HALTER EMAIL -->
+              <div class="form-group">
+                <label for="owner-email">Deine E-Mail <span class="required-star">*</span></label>
+                <input type="email" id="owner-email" placeholder="E-Mail für PDF-Zustellung..." required autocomplete="off">
+                <span class="field-help-text">Hierhin senden wir dein fertiges PDF-Horoskop. Keine Werbemails.</span>
+              </div>
+
+              <!-- HALTER GESCHLECHT -->
+              <div class="form-group">
+                <label>Dein Geschlecht <span class="required-star">*</span></label>
+                <div class="gender-selector">
+                  <button type="button" class="gender-btn active" id="owner-gender-female" data-gender="w">
+                    ♀ Frauchen
+                  </button>
+                  <button type="button" class="gender-btn" id="owner-gender-male" data-gender="m">
+                    ♂ Herrchen
+                  </button>
+                </div>
+              </div>
+
+              <!-- HALTER GEBURTSDATUM -->
+              <div class="form-group">
+                <label for="owner-birthdate">Dein Geburtsdatum <span class="required-star">*</span></label>
+                <input type="date" id="owner-birthdate" required>
+                <span class="field-help-text">Bestimmt dein Sternzeichen für den Partnerschafts-Abgleich.</span>
+              </div>
+
+              <!-- HALTER GEBURTSORT -->
+              <div class="form-group">
+                <label for="owner-birthplace">Dein Geburtsort <span class="required-star">*</span></label>
+                <div class="autocomplete-container">
+                  <input type="text" id="owner-birthplace" placeholder="Geburtsort..." required autocomplete="off">
+                  <div class="autocomplete-suggestions" id="owner-birthplace-suggestions"></div>
+                </div>
+                <span class="field-help-text">Erforderlich für die genaue Berechnung eurer astrologischen Aspekte.</span>
+              </div>
+
+              <!-- HALTER GEBURTSZEIT -->
+              <div class="form-group">
+                <label for="owner-birthtime">Deine Geburtszeit <span class="optional-badge">(optional)</span></label>
+                <input type="time" id="owner-birthtime">
+                <span class="field-help-text">Optional – Verfeinert das astrologische Halter-Profil.</span>
+              </div>
+
+              <!-- SIMULATIONS MODUS (Hidden) -->
+              <div class="form-group form-group-full" style="display: none;">
+                <input type="checkbox" id="simulation-checkbox">
+              </div>
+            </div>
+
+            <div class="form-info-text" style="margin-top: 20px;">
+              „Je mehr du uns verrätst, desto tiefer blicken die Sterne. Auch ohne optionale Angaben erstellen wir eine tiefgründige, persönliche Analyse."
+            </div>
+
+            <button type="submit" class="btn-primary" style="margin-top: 25px; font-size: 1.15rem; width: 100%;">
+              Premium-Horoskop berechnen (CHF 19.90) ✦
+            </button>
+            <span class="cta-trust-badge-sub">
+              Kein Abonnement &bull; Einmalige Zahlung &bull; 🔒 Sichere Zahlung via Stripe
+            </span>
+
+            <div class="wizard-buttons" style="margin-top: 20px; border-top: 1px dashed rgba(255,255,255,0.06); padding-top: 15px;">
+              <button type="button" class="btn-wizard-back" data-prev-step="2" style="width: 100%;">
+                ◀ Zurück zu den Geburtsdaten
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- MAGISCHE LADEANIMATION -->
+    <div class="loader-overlay" id="magic-loader">
+      <div class="solar-system">
+        <div class="sun"></div>
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+      </div>
+      <p id="loader-text">Planeten werden ausgerichtet...</p>
+    </div>
+
+    <section class="result-section" id="horoscope-result" style="margin-bottom: 80px;">
+      <div class="birth-card premium-card">
+        
+        <!-- Sample Preview Banner -->
+        <div id="sample-preview-banner" class="form-info-text" style="display: none; background: rgba(245, 158, 11, 0.15); border-color: var(--gold); color: var(--gold-light); font-size: 1rem; padding: 15px; margin-bottom: 25px; font-weight: 600; text-align: center;">
+          ✨ Dies ist eine Vorschau eines vollständigen Premium-Hundehoroskops für Dante & Claudia ✨
+        </div>
+
+        <div class="premium-header">
+          <div class="premium-tagline" id="res-tagline">Deine kosmische Seelenreise mit deinem Hund</div>
+          <h1 id="res-dog-name" style="margin-top: 15px; font-size: 2.5rem; text-shadow: 0 0 15px rgba(245, 158, 11, 0.3); color: var(--gold); border: none; letter-spacing: 0.05em; display: block; left: auto; transform: none;">DANTE</h1>
+          <div class="premium-subtitle" id="res-subtitle" style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.15em; font-weight: 600; margin-top: 6px; border: none;">KOSMISCHE GEBURTSKARTE • RÜDE • LABRADOR</div>
+        </div>
+
+        <!-- 1. KOSMISCHES WESEN -->
+        <div class="premium-section">
+          <h2>✨ 1. KOSMISCHES WESEN</h2>
+          <div class="cosmic-title-box">
+            <span class="cosmic-dog-title" id="res-cosmic-title">„Dante – Der feurige Pfadfinder des Mutes“</span>
+          </div>
+          
+          <div class="zodiac-triple-badge">
+            <div class="badge-item">
+              <span class="badge-label">Sternzeichen:</span>
+              <strong id="res-dog-sun">Schütze ☀️</strong>
+            </div>
+            <div class="badge-item">
+              <span class="badge-label">Mondzeichen:</span>
+              <strong id="res-dog-moon">Krebs 🌙</strong>
+            </div>
+            <div class="badge-item">
+              <span class="badge-label">Aszendent:</span>
+              <strong id="res-dog-asc">Krebs 🪐</strong>
+            </div>
+          </div>
+
+          <div class="zodiac-double-badge">
+            <span class="meta-badge" id="res-element-badge">Element: Feuer</span>
+            <span class="meta-badge date-range" id="res-planet-badge">Herrscherplanet: Jupiter</span>
+          </div>
+
+          <p class="premium-text" id="res-basic-energy">
+            Dante ist keine gewöhnliche Seele, die zufällig in deinem Leben erschienen ist, sondern ein ganz besonderer Gefährte, dessen Präsenz tief mit deinem eigenen Schicksal verwoben ist. Er ist eines der tiefsten, empathischsten und spirituell aufgewecktesten Wesen, die du je antreffen wirst – in Menschengestalt oder Hundegestalt. Sein Schütze-Wesen vibriert auf einer Frequenz, die weit über das Alltägliche hinausgeht und von dem machtvollen Einfluss von Jupiter getragen wird. Er spürt feinste Stimmungen, bevor sie ausgesprochen werden, fühlt Emotionen, bevor sie sichtbar sind, und liebt mit einer Bedingungslosigkeit, die die meisten Menschen ihr Leben lang vergeblich suchen. Der Krebs-Mond verleiht ihm dabei eine erstaunliche innere Stärke, eine seelische Beständigkeit und ein tiefes Urvertrauen. Er mag nach außen sanft und zurückhaltend wirken, aber in ihm brennt ein ruhiges, unerschütterliches Feuer, das sich nicht so leicht löschen lässt. Der Krebs-Aszendent macht ihn zum geborenen Hüter: seines Zuhauses, seiner Menschen und seiner Gefühle. Jupiter als sein Herrscherplanet verbindet ihn mit der unsichtbaren Welt – mit Träumen, Fährten und dem, was zwischen den Worten und Blicken gesagt wird. Es ist kein Zufall, dass du dich mit ihm tief verbunden fühlst, ohne viele Worte zu brauchen; eure Seelen kommunizieren auf einer Ebene, die Raum und Zeit transzendiert und euch beide im Alltag auf wundervolle Weise erdet.
+          </p>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 2. PERSÖNLICHKEIT & CHARAKTER -->
+        <div class="premium-section">
+          <h2>🌟 2. PERSÖNLICHKEIT & CHARAKTER</h2>
+          
+          <div class="sub-section">
+            <h3 id="header-strengths">Seine grössten Stärken</h3>
+            <p class="premium-text" id="res-strengths">
+              Dantes außergewöhnlichste Gabe ist sein unerschütterlicher Mut und ein ständiger, ansteckender Optimismus, der direkt vom Planeten Mars gespeist wird. Er bringt lebendige, feurige Energie ins Haus, vertreibt Trübsinn sofort und motiviert das gesamte Rudel zu Bewegung und Lebensfreude. Sein Wille ist stark, was ihm eine natürliche Führungs-Ausstrahlung verleiht, ohne dabei jemals aggressiv zu wirken. Er geht voller Elan voran, meistert jede Hürde mit spielerischer Leichtigkeit und schenkt dir in jedem Moment das Gefühl von absoluter Sicherheit und bedingungsloser Loyalität.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3 id="header-challenges">Seine Herausforderungen</h3>
+            <p class="premium-text" id="res-challenges">
+              Dante neigt dazu, sich körperlich komplett zu überfordern und aus reinem Mars-Eifer keine gesunden Grenzen zu kennen. Er will mit dem Kopf durch die Wand und fordert seine Aufgaben lautstark ein. Wenn seine Energie blockiert ist oder er sich unterfordert fühlt, kann er schnell unruhig oder frustriert werden. Lerne daher, ihn sanft, konsequent und mit liebevoller Autorität in die Entspannung und Ruhe zu führen. Er muss lernen, dass Pausen ein wertvoller Teil des kosmischen Rhythmus sind.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3 id="header-needs">Was er wirklich braucht</h3>
+            <p class="premium-text" id="res-needs">
+              Dante neigt dazu, Action zu fordern. Er braucht sportliche Herausforderungen, weite Räume zum Auspowern und das Gefühl, eine wichtige und geschätzte Aufgabe im Rudel zu erfüllen. Vor allem aber benötigt er eine klare, faire Konsequenz, die auf tiefem gegenseitigen Respekt und nicht auf Härte basiert. Er blüht auf, wenn du mit ihm als echtes Team zusammenarbeitest. Plane feste Auslaufzeiten ein, in denen er seine wilde Mars-Kraft vollends ausleben darf.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 3. GESUNDHEIT & VITALITÄT -->
+        <div class="premium-section">
+          <h2>💚 3. GESUNDHEIT & VITALITÄT</h2>
+          
+          <div class="sub-section">
+            <h3>Energielevel & Bewegungsbedarf</h3>
+            <p class="premium-text" id="res-energy-level">
+              Hoch - Benötigt viel freie Bewegung und Auslauf, um überschüssige Mars-Energie abzubauen.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3>Besondere Körperzonen</h3>
+            <p class="premium-text" id="res-health-zone">
+              Die empfindlichen Zonen liegen im Bereich des Kopfes, der Augen und des Gehirns. Achte auf ausreichende, ungestörte Ruhephasen im abgedunkelten Raum, damit das feurige Nervensystem nicht überhitzt. Vermeide zu grelle Mittagssonne und sorge für ständige Kühlung an heißen Tagen.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3>Was ihre Lebensenergie stärkt</h3>
+            <p class="premium-text" id="res-strengthen-energy">
+              Direkter Naturkontakt, Spaziergänge nahe weiten Feldern, viel Ruhe beim Fressen und sanfte Massagen.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 4. HERZENSBINDUNG & RUDELLEBEN -->
+        <div class="premium-section">
+          <h2>❤️ 4. HERZENSBINDUNG & RUDELLEBEN</h2>
+          
+          <div class="sub-section">
+            <h3>Verhältnis zu Menschen</h3>
+            <p class="premium-text" id="res-love-human">
+              Dante liebt leidenschaftlich, stürmisch, lautstark und extrem beschützend. Er fordert Aufmerksamkeit gern aktiv ein, drängt sich liebevoll in den Mittelpunkt und will dein wichtigster Partner sein. Seine Loyalität ist absolut unerschütterlich und von feurigem Mut geprägt.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3>Verhältnis zu anderen Tieren</h3>
+            <p class="premium-text" id="res-love-animals">
+              Grundsätzlich friedfertig und sozial. Braucht bei sehr stürmischen Artgenossen etwas Distanz zur Orientierung. Kleintiere werden mit großer Vorsicht behandelt.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3>Wie sie Zuneigung zeigt und empfängt</h3>
+            <p class="premium-text" id="res-love-show">
+              Drückt sich durch stille körperliche Nähe, das Auflegen des Kopfes auf den Schoß, sanften Augenkontakt und kleine, beständige Begrüßungs-Rituale aus.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 5. MENSCH-HUND SEELENVERBINDUNG -->
+        <div class="premium-section">
+          <h2>🌙 5. MENSCH-HUND SEELENVERBINDUNG</h2>
+          <div class="cosmic-title-box">
+            <span class="cosmic-dog-title" id="res-synastry-names">Claudia & Dante</span>
+          </div>
+
+          <div class="sub-section">
+            <h3>Die kosmische Signatur</h3>
+            <p class="premium-text" id="res-conn-signature">
+              Der lebendige Wind facht das innere Feuer an – ihr beflügelt euch gegenseitig zu unglaublicher Lebensfreude, ständiger Fröhlichkeit und spielerischen Abenteuern.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3>Stärkste Synastrie-Aspekte</h3>
+            <p class="premium-text" id="res-synastry-aspects">
+              Deine Venus (Zwillinge) bildet ein harmonisches Trigon zu Dantes Herrscherplanet Jupiter – die astrologische Signatur einer tiefen Seelenverbindung. Dein Aszendent schwingt in perfekter Resonanz mit Dantes Krebs-Aszendenten.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3 id="header-dog-needs">Was Dante von dir braucht</h3>
+            <p class="premium-text" id="res-dog-needs">
+              Deine ruhige, zentrierte Aufmerksamkeit. Wenn du gestresst bist, braucht Dante 10 Minuten stilles Kuscheln mit seinem Frauchen zum energetischen Ausgleich.
+            </p>
+          </div>
+
+          <div class="sub-section">
+            <h3 id="header-owner-learns">Was du von Dante lernen kannst</h3>
+            <p class="premium-text" id="res-owner-learns">
+              Dante ist dein täglicher Lehrer für Achtsamkeit und zeigt dir als Frauchen, was wahre Präsenz bedeutet. Nachtragend zu sein ist ihm völlig fremd – jeder Morgen ist ein kosmischer Neuanfang.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 6. AKTUELLE KOSMISCHE PHASE -->
+        <div class="premium-section">
+          <h2>⭐ 6. AKTUELLE KOSMISCHE PHASE</h2>
+          <p class="premium-text" id="res-current-phase">
+            Dante befindet sich aktuell in der wichtigen Lebensphase: Welpen- & Entdeckerphase (Eine Zeit des wilden Lernens und der kosmischen Unbeschwertheit. Die Aura baut sich gerade auf.). In dieser Phase geht es kosmisch primär darum, die innere, seelische Bindung zu dir weiter zu zementieren und alte karmische Lernaufgaben abzuschließen. Er filtert Reize der Außenwelt nun bewusster und sucht vermehrt die geistige und körperliche Nähe zu seinem Lieblingsmenschen. In den kommenden 12 Monaten kündigt sich ein harmonischer, stärkender Stand des Planeten Jupiter an, der neue Lebenskraft, gesundheitliche Stabilität und energetische Fröhlichkeit in eure gemeinsame Verbindung spült. Gönne ihm in dieser Zeit viel bewusste Zuwendung.
+          </p>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 7. DEINE 3 KOSMISCHEN ALLTAGSTIPPS -->
+        <div class="premium-section">
+          <h2>🌿 7. DEINE 3 KOSMISCHEN ALLTAGSTIPPS</h2>
+          
+          <div class="tip-card">
+            <div class="tip-number">Tipp 1</div>
+            <div class="tip-body" id="res-tipp1">
+              <strong>Das Feuer-Ritual:</strong> Plane mindestens einmal pro Woche eine freie Renn-Einheit auf einer sicheren Wiese ein, bei der Dante komplett ohne Leine und Vorgaben den Wind der Freiheit spüren kann. Dies ist essenziell, um sein inneres Mars-Feuer sauber brennen zu lassen und Frustrationen vorzubeugen.
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">Tipp 2</div>
+            <div class="tip-body" id="res-tipp2">
+              <strong>Der stille Abend im Gleichklang:</strong> Etabliere einmal pro Woche einen gemeinsamen meditativen Abend, an dem alle störenden Bildschirme, Telefone und Lärmquellen konsequent ausgeschaltet bleiben. Setzt euch zusammen auf den Boden auf eine weiche Decke. Lege deine Hand ganz sanft auf Dantes Brustkorb und atme bewusst im gleichen, ruhigen Takt wie deine Fellnase. Diese einfache Übung synchronisiert eure Herzfrequenzen, stärkt das Band des Vertrauens und baut bei euch beiden stressbedingte Blockaden im Handumdrehen ab.
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">Tipp 3</div>
+            <div class="tip-body" id="res-tipp3">
+              <strong>Mondrhythmus und Regenerationszeiten:</strong> Achte streng auf planetarische Erholungszeiten. Gönne Dante nach intensiven Lerntagen oder aufregenden Ausflügen stets 48 Stunden bewusste Entlastung ohne neue Kommandos oder stressige Begegnungen, damit das gelernte Kosmos-Wissen absinken kann und sein feuriges Nervensystem stabil bleibt.
+            </div>
+          </div>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 8. RAT DES KOSMOS -->
+        <div class="premium-section">
+          <h2>🔮 8. RAT DES KOSMOS</h2>
+          
+          <p class="premium-text" id="res-cosmic-advice" style="font-style: italic;">
+            „Dante ist nicht einfach nur ein Haustier oder ein zufälliger Begleiter in deinem Leben. Er ist ein zufälliger Begleiter auf einem Weg, den du vielleicht noch nicht ganz verstehst. Er ist deine treue Seele auf vier Pfoten, die sich aktiv entschieden hat, an deiner Seite zu gehen und dich durch alle Höhen und Tiefen des Lebens zu begleiten. Seine Seele hat deinen Weg mit kosmischer Präzision gekreuzt, um dir als Spiegel und Heiler zu dienen. Behandle diese heilige Verbindung stets als das, was sie wirklich ist: eines der größten und wertvollsten Geschenke des Universums. Genieße jeden gemeinsamen Atemzug voller Achtsamkeit und Dankbarkeit.“
+          </p>
+          
+          <div class="sub-section" style="margin-top: 20px;">
+            <h3>Euer gemeinsames Ritual – Die Herzverbindung</h3>
+            <p class="premium-text" id="res-joint-ritual">
+              Setzt euch abends bei gedimmtem Licht an einem ruhigen Ort zusammen. Lege beide Hände sanft auf Dantes Brustkorb und spüre den regelmäßigen Herzschlag. Schließe deine Augen, atme dreimal tief aus und sage im Geiste voller Liebe: „Ich sehe dich. Ich bin unendlich dankbar für dich. Ich liebe dich bedingungslos, genau so, wie du bist.“ Bleibe so für etwa 5 Minuten in absoluter Stille sitzen, bis sich eure beiden Energiefelder spürbar beruhigt, harmonisiert und fest miteinander verbunden haben.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <!-- 9. HUNDE-KOMPASS PREMIUM -->
+        <div class="premium-section">
+          <h2>🐾 9. HUNDE-KOMPASS PREMIUM</h2>
+          
+          <div class="kompass-grid">
+            <div class="kompass-cell">
+              <span class="k-icon">💎</span>
+              <div class="k-label">Schutzstein</div>
+              <div class="k-val" id="k-stone">Karneol</div>
+            </div>
+            
+            <div class="kompass-cell">
+              <span class="k-icon">🌿</span>
+              <div class="k-label">Naturelement & Kraftort</div>
+              <div class="k-val" id="k-element">Feuer & Weite Wiesen</div>
+            </div>
+            
+            <div class="kompass-cell">
+              <span class="k-icon">🎨</span>
+              <div class="k-label">Energiefarbe</div>
+              <div class="k-val" id="k-color">Sonnengelb & Rubinrot</div>
+            </div>
+            
+            <div class="kompass-cell">
+              <span class="k-icon">💬</span>
+              <div class="k-label">Kraftwort</div>
+              <div class="k-val" id="k-word">Mut</div>
+            </div>
+
+            <div class="kompass-cell kompass-cell-full">
+              <span class="k-icon">🔮</span>
+              <div class="k-label">Kosmische Essenz</div>
+              <div class="k-val" id="k-essence" style="font-style: italic; font-weight: normal;">„Dante lehrt dich durch seinen leidenschaftlichen Lebenswillen, wie man Ängste mutig überwindet und voller Optimismus neue Wege beschreitet.“</div>
+            </div>
+            
+            <div class="kompass-cell">
+              <span class="k-icon">🌙</span>
+              <div class="k-label">Beste Tageszeit</div>
+              <div class="k-val" id="k-time">Früher Vormittag</div>
+            </div>
+            
+            <div class="kompass-cell">
+              <span class="k-icon">⭐</span>
+              <div class="k-label">Schutzplanet</div>
+              <div class="k-val" id="k-planet">Jupiter</div>
+            </div>
+            
+            <div class="kompass-cell kompass-cell-full">
+              <span class="k-icon">🌍</span>
+              <div class="k-label">Kosmisches Umfeld</div>
+              <div class="k-val" id="k-environment">Ruhige, naturnahe Kraftorte ohne Hektik, Trubel und abrupten Lärm.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-divider" style="margin-top: 40px;"></div>
+        
+        <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; padding: 20px 0 0;">
+          Dieses Horoskop wurde exklusiv erstellt auf Basis der astrologischen Konstellation und der kosmischen Synastrie zwischen Hund und Halter.<br>
+          <strong>In kosmischer Verbundenheit, Deine AMASTRIA 🔮</strong>
+          <br><br>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.06); padding-top: 15px; font-size: 0.72rem;">
+            ℹ️ Dieses Horoskop ist eine spirituelle Begleitung und ersetzt keine tierärztliche Beratung.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn-gold-border" id="btn-new">
+          ✦ Weiteres Horoskop berechnen
+        </button>
+      </div>
+    </section>
+
+    <!-- INTRO-SECTION WITH THE 4 ELEMENTS GRID -->
+    <section class="intro-section" style="margin-top: 40px;">
+      <article class="content-block" style="background: rgba(11, 14, 38, 0.45); border: 1px solid var(--border-glass);">
+        <h2>Was ist ein Hundehoroskop und wie funktioniert es?</h2>
+        <p>
+          Die Idee der Astrologie ist uralt und besagt, dass die Planetenkonstellationen zum Zeitpunkt der Geburt prägenden Einfluss auf das Leben und das Wesen eines Lebewesens haben. Hundehalter:innen wissen längst: Jeder Hund ist ein absolutes Unikat. 
+          Während ein Hund mutig voranschreitet, zieht ein anderer die Sicherheit des Sofas vor. Manche Hunde scheinen die Stimmungen ihrer Besitzer wortlos zu spüren, während andere einen charmanten Dickkopf an den Tag legen.
+        </p>
+        <p>
+          Ein <strong>Hundehoroskop</strong> berechnet das astronomische Tierkreiszeichen (Sternzeichen) Ihres Hundes exakt auf Basis seines Geburtsdatums. Die zwölf Sternzeichen werden traditionell vier Elementen zugeordnet:
+        </p>
+
+        <div class="elements-grid">
+          <!-- Feuer -->
+          <div class="element-card element-feuer">
+            <div class="element-icon">🔥</div>
+            <h3>Feuer</h3>
+            <div class="element-signs">Widder, Löwe, Schütze</div>
+            <p>Mutig, energiegeladen, extrovertiert und voller Tatendrang.</p>
+          </div>
+          <!-- Erde -->
+          <div class="element-card element-erde">
+            <div class="element-icon">🌿</div>
+            <h3>Erde</h3>
+            <div class="element-signs">Stier, Jungfrau, Steinbock</div>
+            <p>Treu, geduldig, genussorientiert und sehr verlässlich.</p>
+          </div>
+          <!-- Luft -->
+          <div class="element-card element-luft">
+            <div class="element-icon">💨</div>
+            <h3>Luft</h3>
+            <div class="element-signs">Zwillinge, Waage, Wassermann</div>
+            <p>Kommunikativ, verspielt, hochgradig neugierig und sozial.</p>
+          </div>
+          <!-- Wasser -->
+          <div class="element-card element-wasser">
+            <div class="element-icon">🌊</div>
+            <h3>Wasser</h3>
+            <div class="element-signs">Krebs, Skorpion, Fische</div>
+            <p>Sensibel, intuitiv, tiefgründig und treu an ihre Menschen gebunden.</p>
+          </div>
+        </div>
+
+        <p style="margin: 0;">
+          Mit unserem personalisierten Rechner ermitteln wir diese Einflüsse und verbinden sie mit einer astrologischen Tagesformkurve (z. B. Kuschellust oder Gehorsam), die sich aus dem Rhythmus der Himmelskörper ableitet.
+        </p>
+      </article>
+    </section>
+
+    <!-- SEO WISSENS- UND INFORMATIONSBEREICH (Crawlable Content) -->
+    <section class="seo-sections">
+
+      <!-- Artikel 2: Die 12 Tierkreiszeichen der Hunde im Überblick -->
+      <div class="seo-card">
+        <h2>Die 12 Sternzeichen der Hunde im Kosmos</h2>
+        <div class="zodiac-grid">
+          
+          <!-- Widder -->
+          <div class="zodiac-card" data-zodiac="widder">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -8,-4 C -8,-10 -2,-10 0,-4 C 2,-10 8,-10 8,-4 C 8,2 3,5 0,10 M 0,-4 L 0,10" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Widder</h3>
+              <span class="zodiac-date">21. März - 20. April</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4);">Element: Feuer</span>
+              </div>
+              <p>
+                Der Widder-Hund sprüht vor Tatendrang und liebt sportliche Aktivitäten. Er geht gerne voran, erkundet mutig das Terrain und schützt sein Territorium energisch. Seine Lernfähigkeit ist extrem hoch, erfordert jedoch konsequente Führung, da sein sprichwörtlicher Dickkopf sonst gerne die Regie übernimmt. Perfekt geeignet für aktive Sportarten wie Agility oder Fährtensuche.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="widder">
+                  Widder-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stier -->
+          <div class="zodiac-card" data-zodiac="stier">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="0" cy="2" r="5" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                    <path d="M -8,-6 C -4,-2 4,-2 8,-6" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Stier</h3>
+              <span class="zodiac-date">21. April - 20. Mai</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(16, 185, 129, 0.15); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4);">Element: Erde</span>
+              </div>
+              <p>
+                Stier-Hunde sind treue Gefährten, die Stabilität und feste Rituale lieben. Ein pünktliches Fresschen und ein gemütlicher, warmer Kuschelplatz sind ihnen heilig. Sie zeichnen sich durch ein geduldiges Wesen aus und sind selten aus der Ruhe zu bringen. Sie eignen sich hervorragend für Familien mit Kindern, da sie extreme Gutmütigkeit besitzen.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="stier">
+                  Stier-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zwillinge -->
+          <div class="zodiac-card" data-zodiac="zwillinge">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -6,-8 L 6,-8 M -6,8 L 6,8 M -3,-8 L -3,8 M 3,-8 L 3,8" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Zwillinge</h3>
+              <span class="zodiac-date">21. Mai - 21. Juni</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(6, 182, 212, 0.15); color: #a5f3fc; border: 1px solid rgba(6, 182, 212, 0.4);">Element: Luft</span>
+              </div>
+              <p>
+                Sehr verspielt, aufgeweckt und extrem neugierig. Der Zwillinge-Hund will immer beschäftigt werden und lernt Tricks in Rekordgeschwindigkeit. Im Hundepark ist er der absolute Star, der freudig jeden Artgenossen begrüßt. Langeweile mag er gar nicht – geben Sie ihm Intelligenzspielzeuge und viel Abwechslung bei Spaziergängen.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="zwillinge">
+                  Zwillinge-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Krebs -->
+          <div class="zodiac-card" data-zodiac="krebs">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="-4" cy="-4" r="3" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                    <path d="M -1,-4 C 4,-4 7,0 7,0" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                    <circle cx="4" cy="4" r="3" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                    <path d="M 1,4 C -4,4 -7,0 -7,0" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Krebs</h3>
+              <span class="zodiac-date">22. Juni - 22. Juli</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(59, 130, 246, 0.15); color: #bfdbfe; border: 1px solid rgba(59, 130, 246, 0.4);">Element: Wasser</span>
+              </div>
+              <p>
+                Der absolute Kuschelmeister. Ein Krebs-Hund besitzt eine hochfeine Antenne für die Gefühlslage seiner Halter:innen. Er sucht stets die körperliche Nähe und liebt es, unter Decken zu schlafen. Gegenüber lauten Geräuschen oder Stress reagiert er sensibel und zieht sich zurück. Er benötigt viel Zuwendung und ein harmonisches Umfeld.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="krebs">
+                  Krebs-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Löwe -->
+          <div class="zodiac-card" data-zodiac="loewe">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="-5" cy="5" r="3" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                    <path d="M -2,5 C -2,0 2,-7 7,-7 C 11,-7 11,-2 8,2 C 5,5 6,9 9,9" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Löwe</h3>
+              <span class="zodiac-date">23. Juli - 23. August</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4);">Element: Feuer</span>
+              </div>
+              <p>
+                Der stolze Beschützer und majestätische Auftritt. Ein Löwe-Hund steht gerne im Mittelpunkt und liebt es, bewundert zu werden. Er besitzt ein mutiges Herz und beschützt sein Rudel bedingungslos. Wenn man ihn lobt, vollbringt er begeistert Höchstleistungen. Er flaniert gerne königlich an der Leine und beansprucht die besten Plätze im Haus.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="loewe">
+                  Löwe-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jungfrau -->
+          <div class="zodiac-card" data-zodiac="jungfrau">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -8,-6 L -8,6 M -4,-6 L -4,6 M 0,-6 L 0,3 C 0,6 2,7 4,6 C 6,5 6,2 6,-2 M 3,2 C 5,2 8,4 8,7 C 8,9 6,11 3,9" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Jungfrau</h3>
+              <span class="zodiac-date">24. August - 23. September</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(16, 185, 129, 0.15); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4);">Element: Erde</span>
+              </div>
+              <p>
+                Pflichtbewusst, intelligent und extrem ordentlich. Jungfrau-Hunde lieben strukturierte Aufgaben und räumen oft ihr Spielzeug eigenständig auf. Sie meiden Schlammpfützen und schätzen eine saubere Decke. Gesundheitlich haben sie oft ein feinfühliges Verdauungssystem – achten Sie hier auf naturbelassene, ausgewogene Ernährung.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="jungfrau">
+                  Jungfrau-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Waage -->
+          <div class="zodiac-card" data-zodiac="waage">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -10,6 L 10,6 M -10,2 C -5,-2 5,-2 10,2 M -3,2 L 3,2" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Waage</h3>
+              <span class="zodiac-date">24. September - 23. Oktober</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(6, 182, 212, 0.15); color: #a5f3fc; border: 1px solid rgba(6, 182, 212, 0.4);">Element: Luft</span>
+              </div>
+              <p>
+                Harmonie und Charme zeichnen das Waage-Sternzeichen aus. Waage-Hunde hassen familiäre Spannungen und versuchen oft aktiv zu schlichten. Sie besitzen eine zutiefst friedfertige Art, kuscheln leidenschaftlich gern und bezaubern fremde Menschen im Nu. Manchmal fällt ihnen die Entscheidung für ein bestimmtes Spielzeug schwer.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="waage">
+                  Waage-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skorpion -->
+          <div class="zodiac-card" data-zodiac="skorpion">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -8,-6 L -8,6 M -4,-6 L -4,6 M 0,-6 L 0,3 C 0,6 2,7 4,6 C 6,5 6,0 6,-4 M 6,1 L 9,4 M 9,4 L 9,1 M 9,4 L 6,4" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Skorpion</h3>
+              <span class="zodiac-date">24. Oktober - 22. November</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(59, 130, 246, 0.15); color: #bfdbfe; border: 1px solid rgba(59, 130, 246, 0.4);">Element: Wasser</span>
+              </div>
+              <p>
+                Ein Skorpion-Hund ist intensiv, willensstark und besitzt eine spürbare energetische Ausstrahlung. Seine Treue kennt keine Grenzen – er geht für seine Halter:innen sprichwörtlich durchs Feuer. Er liebt es, Geheimnisse zu erschnüffeln und Fährten nachzugehen. Gelegentlich neigt er zur Eifersucht, wenn er seine Bezugsperson teilen muss.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="skorpion">
+                  Skorpion-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Schütze -->
+          <div class="zodiac-card" data-zodiac="schuetze">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -8,8 L 8,-8 M 2,-8 L 8,-8 L 8,-2 M -3,3 L 3,9" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Schütze</h3>
+              <span class="zodiac-date">23. November - 21. Dezember</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4);">Element: Feuer</span>
+              </div>
+              <p>
+                Der geborene Optimist auf vier Pfoten. Der Schütze-Hund wedelt immer gut gelaunt, liebt lange Ausflüge und Reisen ins Unbekannte. Er besitzt ein sonniges, tollpatschiges Gemüt und bringt seine Familie täglich zum Lachen. Er liebt Kinder und ist im Grunde seines Herzens ein absolut treuer Freigeist.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="schuetze">
+                  Schütze-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Steinbock -->
+          <div class="zodiac-card" data-zodiac="steinbock">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -8,-6 L -8,4 M -8,-4 C -6,-8 -2,-8 0,-4 L 0,4 C 0,8 3,9 5,7 C 7,5 5,1 2,3" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Steinbock</h3>
+              <span class="zodiac-date">22. Dezember - 20. Januar</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(16, 185, 129, 0.15); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4);">Element: Erde</span>
+              </div>
+              <p>
+                Sehr reif, ausdauernd und pflichtbewusst. Steinbock-Hunde strahlen eine majestätische Ruhe aus. Sie bewachen ihr Zuhause zuverlässig und arbeiten in der Hundeschule hochkonzentriert mit. Erst im fortgeschrittenen Alter tauen sie so richtig auf und offenbaren ihre verschmitzte, lustige Seniorenhund-Persönlichkeit.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="steinbock">
+                  Steinbock-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wassermann -->
+          <div class="zodiac-card" data-zodiac="wassermann">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -10,-3 L -7,-6 L -4,-3 L -1,-6 L 2,-3 L 5,-6 L 8,-3 L 10,-5 M -10,5 L -7,2 L -4,5 L -1,2 L 2,5 L 5,2 L 8,5 L 10,3" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Wassermann</h3>
+              <span class="zodiac-date">21. Januar - 19. Februar</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(6, 182, 212, 0.15); color: #a5f3fc; border: 1px solid rgba(6, 182, 212, 0.4);">Element: Luft</span>
+              </div>
+              <p>
+                Ein absolut kreativer und exzentrischer Freigeist. Wassermann-Hunde erfinden gerne eigene Spiele und schlafen oft in völlig absurden Posen. Sie sind extrem tolerant und verstehen sich meist blind mit Katzen und anderen Tieren. Ihre Eigenständigkeit erfordert humorvolle Toleranz seitens ihrer Menschen.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="wassermann">
+                  Wassermann-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fische -->
+          <div class="zodiac-card" data-zodiac="fische">
+            <div class="zodiac-card-header">
+              <div class="zodiac-icon-wrapper">
+                <svg viewBox="0 0 100 100" class="zodiac-svg">
+                  <circle cx="50" cy="50" r="42" stroke="var(--gold-dark)" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+                  <circle cx="50" cy="50" r="36" stroke="var(--gold)" stroke-width="1.5" fill="none" class="zodiac-ring"/>
+                  <g transform="translate(50, 50) scale(1.6)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M -6,-8 C -2,-4 -2,4 -6,8 M 6,-8 C 2,-4 2,4 6,8 M -8,0 L 8,0" stroke="var(--gold-light)" stroke-width="1.5" fill="none"/>
+                  </g>
+                </svg>
+              </div>
+              <h3>Fische</h3>
+              <span class="zodiac-date">20. Februar - 20. März</span>
+            </div>
+            <div class="zodiac-card-content">
+              <div class="accordion-meta-box">
+                <span class="accordion-badge" style="background: rgba(59, 130, 246, 0.15); color: #bfdbfe; border: 1px solid rgba(59, 130, 246, 0.4);">Element: Wasser</span>
+              </div>
+              <p>
+                Sanftmütig, harmonisch und oft verträumt. Fische-Hunde schlafen sehr viel und zucken dabei im Traum voller Abenteuer. Sie lieben meist das Element Wasser über alles – sei es ein Bach, ein Waldsee oder eine Regenpfütze. Sie besitzen eine stille, beruhigende Energie und schenken ihren Menschen grenzenlose Zuneigung.
+              </p>
+              <div class="zodiac-select-link-wrapper">
+                <button type="button" class="btn-zodiac-select" data-zodiac-select="fische">
+                  Fische-Hund auswählen ➔
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Bereich (für SEO/KI Rich Snippets) -->
+      <article class="content-block" style="margin-top: 50px;">
+        <h2>Häufig gestellte Fragen (FAQ) zum Hundehoroskop</h2>
+        
+        <div class="accordion-wrapper">
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Haben Planeten wirklich Einfluss auf meinen Hund?</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Die Tier-Astrologie geht davon aus, dass alle lebenden Wesen von den elektromagnetischen und kosmischen Rhythmen der Natur beeinflusst werden. Während es wissenschaftlich keine exakten Belege gibt, zeigt die langjährige Beobachtung von Hundehalter:innen erstaunliche Übereinstimmungen zwischen den Charaktereigenschaften von Hunden und ihren astrologischen Geburtsbildern. Sehen Sie es als liebevollen Weg, sich intensiver mit den Charaktereigenschaften Ihres Lieblings auseinanderzusetzen.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Wie funktioniert das 'Rescue-Dog'-Feature?</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Viele Hunde aus dem Tierschutz wurden ohne Geburtsdaten adoptiert. Damit diese wunderbaren Seelen nicht auf ihr Horoskop verzichten müssen, haben wir ein Verhaltensquiz integriert. Basierend auf drei charakteristischen Verhaltensweisen (Reaktion auf Neues, Lieblingsspiel und Sozialverhalten) ermittelt unser System die dominante Elementen-Konstellation (Feuer, Erde, Luft, Wasser) und errechnet das energetisch am besten passende Sternzeichen Ihres Lieblings.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Sind Rüden und Hündinnen astrologisch unterschiedlich?</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Das Grundsternzeichen und das kosmische Element sind bei beiden Geschlechtern identisch. Allerdings fließen hormonelle und verhaltensbiologische Grundtendenzen in unsere astrologische Interpretation mit ein. In unserer personalisierten Auswertung passen wir grammatikalische Strukturen und feine Nuancen der Verhaltensprognose an das Geschlecht (Rüde oder Hündin) an, um das Ergebnis so stimmig wie möglich zu präsentieren.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Was erhalte ich nach dem Kauf und wie schnell?</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Nach dem erfolgreichen Kauf wird dein persönliches Premium-Hundehoroskop sofort als hochwertige PDF-Datei generiert. Du erhältst direkt im Anschluss einen Download-Link im Browser und zusätzlich eine Bestätigungs-E-Mail mit dem Horoskop. Der gesamte Prozess ist vollautomatisiert und dauert in der Regel weniger als 2 Minuten.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Kann ich das Horoskop auch als Geschenk erstellen?</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Ja, absolut! Das Hundehoroskop eignet sich hervorragend als Geschenk für frischgebackene Hundeeltern, zum Geburtstag einer Fellnase oder zu Weihnachten. Trage beim Ausfüllen im dritten Schritt einfach den Namen des Beschenkten (als Halter:in) ein. Du kannst das fertige PDF-Dokument ausdrucken und binden lassen oder die E-Mail einfach weiterleiten.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Wie sicher ist die Bezahlung und welche Methoden gibt es?</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Sicherheit steht bei uns an erster Stelle. Alle Zahlungen werden über Stripe abgewickelt, einen der weltweit sichersten und führenden Zahlungsdienstleister. Wir unterstützen Kreditkarten, Apple Pay, Google Pay und weitere gängige Methoden. Es handelt sich um eine einmalige Zahlung von CHF 19.90 – es gibt kein verstecktes Abonnement und keine Folgekosten.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </section>
+
+    <!-- KONTAKT FORMULAR -->
+    <section class="contact-section" id="kontakt-section" style="margin-top: 60px; margin-bottom: 40px;">
+      <div class="card-glass" style="max-width: 650px; margin: 0 auto; padding: 35px; border: 1px solid var(--border-gold);">
+        <h2>🔮 Kontaktiere uns</h2>
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; margin-top: -10px;">
+          Hast du Fragen zu deinem Hundehoroskop oder benötigst du Unterstützung? Schreib uns eine Nachricht.
+        </p>
+        
+        <form id="contact-form">
+          <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+            <div class="form-group">
+              <label for="contact-name">Dein Name <span class="required-star">*</span></label>
+              <input type="text" id="contact-name" placeholder="Name..." required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Deine E-Mail <span class="required-star">*</span></label>
+              <input type="email" id="contact-email" placeholder="E-Mail..." required autocomplete="email">
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="contact-message">Deine Nachricht <span class="required-star">*</span></label>
+            <textarea id="contact-message" placeholder="Wie können wir dir helfen?..." rows="4" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.05rem;">
+            Nachricht senden ✉
+          </button>
+        </form>
+
+        <div id="contact-success" class="form-info-text" style="display: none; background: rgba(245, 158, 11, 0.1); border-color: var(--gold); color: var(--gold-light); margin-top: 0;">
+          Vielen Dank! Deine Nachricht wurde erfolgreich übermittelt. Wir melden uns so schnell wie möglich bei dir. ✦
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Hundehoroskop.com. Alle Rechte vorbehalten.</p>
+      <p style="font-size: 0.75rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 20px;">
+        Hinweis: Hundehoroskope dienen der Unterhaltung und dem besseren emotionalen Verständnis. Sie ersetzen bei gesundheitlichen oder psychischen Problemen Ihres Hundes niemals den Besuch bei einer Tierärztin, einem Tierarzt oder professionellen Hundetrainer:innen.
+      </p>
+      <div class="footer-links">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
