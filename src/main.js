@@ -932,25 +932,60 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contact-form");
   const contactSuccess = document.getElementById("contact-success");
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       
       const submitBtn = contactForm.querySelector("button[type='submit']");
+      const nameInput = document.getElementById("contact-name");
+      const emailInput = document.getElementById("contact-email");
+      const messageInput = document.getElementById("contact-message");
+      
+      if (!nameInput || !emailInput || !messageInput) return;
       
       // Disable inputs and show loading state
       submitBtn.disabled = true;
+      const originalBtnText = submitBtn.textContent;
       submitBtn.textContent = "Sende Nachricht... ✉";
       
       const inputs = contactForm.querySelectorAll("input, textarea");
       inputs.forEach(i => i.disabled = true);
       
-      setTimeout(() => {
+      try {
+        const backendUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+          ? 'http://localhost:3000'
+          : 'https://app.amastria.com';
+
+        const response = await fetch(`${backendUrl}/api/orakel/contact`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            message: messageInput.value.trim()
+          })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json();
+          throw new Error(errData.error || "Fehler beim Senden der Nachricht.");
+        }
+
         // Hide form and show success message
         contactForm.style.display = "none";
         if (contactSuccess) {
           contactSuccess.style.display = "block";
         }
-      }, 1500);
+      } catch (err) {
+        console.error("Kontaktformular Fehler:", err);
+        alert("Fehler beim Senden der Nachricht:\n" + err.message);
+        
+        // Re-enable form
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        inputs.forEach(i => i.disabled = false);
+      }
     });
   }
 
