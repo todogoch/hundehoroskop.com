@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum – Hundehoroskop.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #04060f;
+      --bg-card: rgba(255, 255, 255, 0.02);
+      --gold: #f59e0b;
+      --gold-light: #fbbf24;
+      --text-main: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(245, 158, 11, 0.15);
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      background: radial-gradient(circle at 10% 10%, #11142a 0%, #04060f 70%);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    .impressum-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 50px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    
+    @media (max-width: 600px) {
+      .impressum-card {
+        padding: 25px;
+      }
+      .container {
+        margin: 15px auto;
+      }
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+      transition: color 0.2s, transform 0.2s;
+    }
+    
+    .back-link:hover {
+      color: var(--gold-light);
+      transform: translateX(-3px);
+    }
+    
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #ffffff;
+      font-size: 2.6rem;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 15px;
+    }
+    
+    h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--gold-light);
+      font-size: 1.6rem;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-main);
+    }
+    
+    a.inline-link {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--gold);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    
+    a.inline-link:hover {
+      color: var(--gold-light);
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <a href="/" class="back-link">✦ Zurück zur Startseite</a>
+    
+    <div class="impressum-card">
+      <h1>Impressum</h1>
+      
+      <h2>Angaben gemäß Gesetz</h2>
+      <p>
+        <strong>TODOGO Sümer</strong><br>
+        Schweiz
+      </p>
+      
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:hallo@hundehoroskop.com" class="inline-link">hallo@hundehoroskop.com</a><br>
+        Website: <a href="https://www.hundehoroskop.com" class="inline-link" target="_blank">www.hundehoroskop.com</a>
+      </p>
+
+      <h2>Haftungsausschluss (Disclaimer)</h2>
+      
+      <h3>Haftung für Inhalte</h3>
+      <p>
+        Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+      </p>
+      
+      <h3>Haftung für Links</h3>
+      <p>
+        Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+      </p>
+
+      <h2>Urheberrecht</h2>
+      <p>
+        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
