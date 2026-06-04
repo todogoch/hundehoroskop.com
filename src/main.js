@@ -435,7 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
           const backendUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
             ? 'http://localhost:3000'
-            : '';
+            : 'https://app.amastria.com';
 
           const response = await fetch(`${backendUrl}/api/orakel/checkout`, {
             method: "POST",
