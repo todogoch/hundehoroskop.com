@@ -954,5 +954,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Cookie Consent Banner Logic ---
+  const cookieBanner = document.getElementById("cookie-consent-banner");
+  const acceptAllBtn = document.getElementById("cookie-accept-all");
+  const acceptEssentialBtn = document.getElementById("cookie-accept-essential");
+
+  if (cookieBanner) {
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) {
+      setTimeout(() => {
+        cookieBanner.style.display = "block";
+        // Trigger reflow for CSS transition
+        cookieBanner.offsetHeight;
+        cookieBanner.classList.add("show");
+      }, 1000);
+    } else if (consent === "all") {
+      enableTracking();
+    }
+
+    acceptAllBtn.addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "all");
+      cookieBanner.classList.remove("show");
+      setTimeout(() => {
+        cookieBanner.style.display = "none";
+      }, 400);
+      enableTracking();
+    });
+
+    acceptEssentialBtn.addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "essential");
+      cookieBanner.classList.remove("show");
+      setTimeout(() => {
+        cookieBanner.style.display = "none";
+      }, 400);
+    });
+  }
+
+  function enableTracking() {
+    console.log("Tracking aktiviert (Google Analytics etc.)");
+    // Falls Google Analytics oder Google Tag Manager geladen werden soll:
+    /*
+    if (!window.gtagInitialized) {
+      window.gtagInitialized = true;
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"; // Eigene Google Analytics ID hier eintragen
+      document.head.appendChild(script);
+      
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+    }
+    */
+  }
+
 });
 
