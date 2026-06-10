@@ -11,6 +11,34 @@ function cleanText(val) {
 
 document.addEventListener("DOMContentLoaded", () => {
   
+  // --- Währungserkennung und dynamische Preisanzeige ---
+  function detectUserCurrency() {
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (tz === "Europe/Zurich" || tz === "Europe/Vaduz") {
+        return "CHF";
+      }
+      const lang = navigator.language || "";
+      if (
+        lang.endsWith("-CH") ||
+        lang.endsWith("-LI") ||
+        lang.endsWith("-ch") ||
+        lang.endsWith("-li")
+      ) {
+        return "CHF";
+      }
+    } catch (e) {
+      console.error("Failed to detect currency", e);
+    }
+    return "EUR";
+  }
+
+  const userCurrency = detectUserCurrency();
+  const priceString = userCurrency === "CHF" ? "CHF 19.90" : "19,90 €";
+  document.querySelectorAll(".dynamic-price").forEach(el => {
+    el.textContent = priceString;
+  });
+
   // 1. Initialisiere Sternenhimmel Canvas
   initConstellations("constellations-bg");
 
@@ -460,7 +488,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ownerBirthdate: ownerBirthdate.value,
               ownerBirthplace: ownerBirthplace.value.trim(),
               ownerBirthtime: ownerBirthtime.value,
-              currency: "chf"
+              currency: userCurrency.toLowerCase()
             })
           });
 
