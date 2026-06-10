@@ -1055,21 +1055,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function enableTracking() {
     console.log("Tracking aktiviert (Google Analytics etc.)");
-    // Falls Google Analytics oder Google Tag Manager geladen werden soll:
-    /*
     if (!window.gtagInitialized) {
       window.gtagInitialized = true;
       const script = document.createElement("script");
       script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"; // Eigene Google Analytics ID hier eintragen
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-XKCTF0R6R8";
       document.head.appendChild(script);
       
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+      gtag('config', 'G-XKCTF0R6R8', { 'anonymize_ip': true });
     }
-    */
   }
 
 });
