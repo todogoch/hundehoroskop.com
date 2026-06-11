@@ -143,6 +143,40 @@ header {
   font-size: 2.2rem;
 }
 
+/* LOGO STYLING */
+.logo-wrapper {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-logo {
+  max-width: 280px;
+  height: auto;
+  max-height: 110px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.12));
+  transition: var(--transition);
+  animation: fadeInDown 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.main-logo:hover {
+  transform: scale(1.02) translateY(-2px);
+  filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.25));
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* HERO SECTION */
 .hero {
   text-align: center;
