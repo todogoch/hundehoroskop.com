@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über uns – Hundehoroskop.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #04060f;
+      --bg-card: rgba(255, 255, 255, 0.02);
+      --bg-card-hover: rgba(255, 255, 255, 0.04);
+      --gold: #f59e0b;
+      --gold-light: #fbbf24;
+      --gold-dark: #b45309;
+      --text-main: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(245, 158, 11, 0.15);
+      --border-color-hover: rgba(255, 255, 255, 0.1);
+      --shadow-gold: 0 0 25px rgba(245, 158, 11, 0.1);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      background: radial-gradient(circle at 10% 10%, #11142a 0%, #04060f 70%);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        margin: 15px auto;
+        padding: 10px;
+      }
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .back-link svg {
+      margin-right: 8px;
+      transition: transform 0.2s;
+    }
+    
+    .back-link:hover {
+      color: var(--gold-light);
+      transform: translateX(-3px);
+    }
+    
+    .back-link:hover svg {
+      transform: translateX(-2px);
+    }
+    
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6), var(--shadow-gold);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: relative;
+    }
+    
+    .about-card::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(245, 158, 11, 0.05);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+    
+    @media (max-width: 600px) {
+      .about-card {
+        padding: 25px;
+      }
+    }
+    
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #ffffff;
+      font-size: 2.8rem;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 15px;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--gold-light);
+      font-size: 1.8rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+    
+    .hero-lead {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #ffffff;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+      margin-bottom: 35px;
+    }
+    
+    /* Grid system for special features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      margin-top: 25px;
+      margin-bottom: 35px;
+    }
+    
+    @media (min-width: 768px) {
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .feature-item {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 24px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    
+    .feature-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(245, 158, 11, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    
+    .feature-item p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    /* CTA Section */
+    .cta-box {
+      margin-top: 50px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, rgba(17, 20, 42, 0.6) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 35px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-box h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    
+    .cta-box p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-w-md;
+      margin: 0 auto 24px;
+    }
+    
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #04060f;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    
+    .cta-btn:hover {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+    }
+    
+    .cta-btn svg {
+      margin-left: 8px;
+    }
+    
+    .star-symbol {
+      color: var(--gold);
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <a href="/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Zurück zur Startseite
+    </a>
+    
+    <div class="about-card">
+      <h1>Über uns</h1>
+      
+      <div class="hero-lead">
+        Hinter jedem Hundeblick steckt eine ganze Welt.<br>
+        Hundehoroskop.com übersetzt sie für dich – empathisch, fundiert, inspirierend.
+      </div>
+      
+      <h2><span class="star-symbol">✦</span> Warum es Hundehoroskop.com gibt</h2>
+      <p>
+        Bestimmt kennst du das: Du siehst deinen Hund an und fragst dich, was er gerade denkt. Warum reagiert er in manchen Situationen so sensibel, während er in anderen furchtlos ist? Was treibt ihn an, was beruhigt ihn, und wie könnt ihr noch besser als Team zusammenwachsen?
+      </p>
+      <p>
+        Wir glauben, dass Hunde nicht nur Haustiere sind. Sie sind Seelengefährten mit einer ganz eigenen Persönlichkeit, geprägt vom Moment ihrer Geburt. Mit Hundehoroskop.com wollten wir eine Brücke schlagen: zwischen modernster Tierastrologie und der tiefen Liebe zu unseren vierbeinigen Begleitern.
+      </p>
+      
+      <h2><span class="star-symbol">✦</span> Wer wir sind</h2>
+      <p>
+        Hinter Hundehoroskop.com steht ein tierliebes Team von Astrologinnen und Hunde-Verhaltenstrainern aus der Schweiz.
+      </p>
+      <p>
+        Wir verbinden das Wissen über planetare Zyklen mit jahrelanger Erfahrung in Hundetraining und Tierpsychologie. Denn ein Horoskop für Hunde darf keine reine Spielerei sein – es soll dir helfen, deinen Hund auf einer tieferen Ebene zu verstehen, seine Bedürfnisse zu erkennen und euer Zusammenleben harmonischer zu gestalten.
+      </p>
+      <p>
+        Gegründet und gepflegt in der Schweiz, stehen wir für Vertrauen, Herzblut und höchste Qualität in jeder Analyse.
+      </p>
+
+      <h2><span class="star-symbol">✦</span> Was uns besonders macht</h2>
+      <div class="features-grid">
+        <!-- Rassespezifische Deutung -->
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.523 4.477 10 10 10s10-4.477 10-10A10 10 0 0 0 12 2zm1 10h-2V7h2v5zm0 4h-2v-2h2v2z"></path></svg>
+          </div>
+          <h3>Rassespezifische Deutung</h3>
+          <p>Ein Chihuahua hat andere Bedürfnisse als eine Dogge. Unsere Analysen berücksichtigen die genetische Veranlagung deines Hundes.</p>
+        </div>
+        
+        <!-- Der Mensch-Hund-Kompass -->
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
+          <h3>Der Mensch-Hund-Kompass</h3>
+          <p>Wir deuten nicht nur deinen Hund, sondern analysieren eure gegenseitige Anziehung und Seelenverbindung.</p>
+        </div>
+        
+        <!-- Praktischer Alltagstransfer -->
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h3>Praktischer Alltagstransfer</h3>
+          <p>Zu jedem Horoskop erhältst du konkrete, alltagstaugliche Tipps für Training, Gesundheit und Beschäftigung.</p>
+        </div>
+      </div>
+
+      <h2><span class="star-symbol">✦</span> Woran wir glauben</h2>
+      <p>
+        Dein Hund braucht kein Horoskop, um dich zu lieben. Aber du kannst ein Horoskop nutzen, um seine Liebe noch besser zu erwidern. Ein Hundehoroskop ist kein starres Urteil – es ist ein liebevoller Wegweiser zu mehr Verständnis, Geduld und tieferer Verbundenheit im Alltag.
+      </p>
+      
+      <!-- CTA Banner -->
+      <div class="cta-box">
+        <h3>Lerne deinen Hund noch besser kennen</h3>
+        <p>Erstelle in wenigen Schritten die astrologische Geburtskarte deines Hundes und entdecke eure Seelenverbindung.</p>
+        <a href="/#rechner-section" class="cta-btn">
+          Jetzt deinen Hunde-Kompass entdecken
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
