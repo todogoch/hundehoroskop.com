@@ -37,23 +37,106 @@
   <!-- Magischer Partikel-Hintergrund -->
   <canvas id="constellations-bg"></canvas>
 
-  <div class="container">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="logo-wrapper">
-        <img src="/logo-hundehoroskop.png" alt="Hundehoroskop Logo" class="main-logo">
+  <!-- HERO Sektion (sec-deep) -->
+  <section class="sec-deep sec-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text-side">
+          <div class="logo-wrapper" style="justify-content: flex-start;">
+            <img src="/logo-hundehoroskop.png" alt="Hundehoroskop Logo" class="main-logo">
+          </div>
+          <h1>Kosmische Einblicke in die Seele deines Hundes</h1>
+          <p>
+            Hunde sind treue Seelenpartner, deren Charaktereigenschaften, Vorlieben und Macken oft tief im Kosmos verwurzelt sind. 
+            Berechne das personalisierte Premium-Hundehoroskop deiner Fellnase und entdecke das energetische Zusammenspiel der Sterne, 
+            die Synastrie-Verbindung zu dir sowie wertvolle astrologische Alltagstipps.
+          </p>
+          <div class="hero-cta-buttons">
+            <a href="#rechner-section" class="btn-primary hero-btn-main">Jetzt Horoskop berechnen ✦</a>
+            <button type="button" class="btn-sample-highlight-new hero-btn-sec" id="btn-load-sample-hero">📖 Kostenlose Muster-Vorschau</button>
+          </div>
+          <div class="hero-trust-bar">
+            <span>🔒 SSL-gesichert via Stripe</span>
+            <span>⚡ PDF sofort per E-Mail</span>
+            <span>✨ Einmalig <span class="dynamic-price">CHF 19.90</span></span>
+          </div>
+        </div>
+        <div class="hero-image-side">
+          <div class="hero-dog-image-wrapper">
+            <img src="/hero-dog.png" alt="Kosmischer Hund" class="hero-dog-image">
+            <div class="image-stellar-glow"></div>
+          </div>
+        </div>
       </div>
-      <h1>Kosmische Einblicke in die Seele deines Hundes</h1>
-      <p>
-        Hunde sind treue Seelenpartner, deren Charaktereigenschaften, Vorlieben und Macken oft tief im Kosmos verwurzelt sind. 
-        Berechne das personalisierte Premium-Hundehoroskop deiner Fellnase und entdecke das energetische Zusammenspiel der Sterne, 
-        die Synastrie-Verbindung zu dir sowie wertvolle astrologische Alltagstipps.
-      </p>
-    </section>
+    </div>
+  </section>
 
-    <!-- PREVIEW-SECTION SHOWING HOROSCOPE ADVANTAGES -->
-    <section class="preview-section">
+  <!-- PDF-MUSTER-VORSCHAU (MOCKUPS) (sec-navy) -->
+  <section class="sec-navy sec-mockups">
+    <div class="container">
+      <h2>So sieht dein Premium-Hundehoroskop aus</h2>
+      <p class="mockup-intro-text">
+        Dein persönliches Hundehoroskop wird als liebevoll gestaltetes, digitales E-Book (PDF) direkt per E-Mail geliefert. 
+        Hier siehst du einen Einblick in die 9 Kapitel und das Design des fertigen Werks.
+      </p>
+      
+      <div class="mockup-showcase-grid">
+        <!-- Left Side: Tablet Mockup representing a digital E-Book -->
+        <div class="tablet-mockup-side">
+          <div class="tablet-frame">
+            <div class="tablet-screen">
+              <div class="pdf-page-inner cover">
+                <div class="mock-header">AMASTRIA KOSMOS</div>
+                <div class="mock-content cover">
+                  <div class="mock-star-badge">★ ★ ★</div>
+                  <div class="mock-paw">🐾</div>
+                  <h3 class="mock-book-title">DANTE</h3>
+                  <div class="mock-book-sub">PREMIUM HOROSKOP</div>
+                  <div class="mock-astrolabe-svg">
+                    <svg viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" stroke="rgba(245,158,11,0.15)" stroke-width="1" fill="none"/>
+                      <circle cx="50" cy="50" r="28" stroke="rgba(245,158,11,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="2 2"/>
+                      <line x1="10" y1="50" x2="90" y2="50" stroke="rgba(245,158,11,0.1)"/>
+                      <line x1="50" y1="10" x2="50" y2="90" stroke="rgba(245,158,11,0.1)"/>
+                      <circle cx="50" cy="50" r="3" fill="#f59e0b"/>
+                    </svg>
+                  </div>
+                  <div class="mock-footer-meta">ELEMENT: FEUER &bull; PLANET: JUPITER</div>
+                </div>
+                <div class="mock-page-num">Seite 1 (Deckblatt)</div>
+              </div>
+            </div>
+            <div class="tablet-home-button"></div>
+          </div>
+        </div>
+        
+        <!-- Right Side: Chapter List -->
+        <div class="chapters-list-side">
+          <div class="chapters-card card-glass">
+          <div class="chapters-card-header">
+            <h3>Inhalt des Premium-Horoskops</h3>
+            <span class="chapters-stats">9 Kapitel &bull; 7 A4-Seiten</span>
+          </div>
+            <ul class="chapters-ul">
+              <li><span class="chapter-icon">🌌</span> <strong>1. Das kosmische Wesen:</strong> Sternzeichen, Mond & Aszendent</li>
+              <li><span class="chapter-icon">🌟</span> <strong>2. Charakter & Temperament:</strong> Stärken und Herausforderungen</li>
+              <li><span class="chapter-icon">💚</span> <strong>3. Gesundheit & Vitalität:</strong> Energielevel & sensible Zonen</li>
+              <li><span class="chapter-icon">❤️</span> <strong>4. Herzensbindung:</strong> Verhältnis zu Mensch & Tier</li>
+              <li><span class="chapter-icon">🤝</span> <strong>5. Seelenverbindung:</strong> Partnerschafts-Synastrie zum Halter</li>
+              <li><span class="chapter-icon">🔮</span> <strong>6. Aktuelle Phase:</strong> Planetentransite deines Hundes</li>
+              <li><span class="chapter-icon">🌿</span> <strong>7. 3 Kosmische Alltagstipps:</strong> Rituale & Verhaltenshilfen</li>
+              <li><span class="chapter-icon">✨</span> <strong>8. Rat des Kosmos:</strong> Botschaft & gemeinsames Ritual</li>
+              <li><span class="chapter-icon">🧭</span> <strong>9. Hunde-Kompass Premium:</strong> Schutzsteine & Kraftorte</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW Sektion (Vorteile) (sec-deep) -->
+  <section class="sec-deep sec-preview">
+    <div class="container">
       <h2>Was du im persönlichen Premium-Hundehoroskop erfährst</h2>
       <div class="preview-grid">
         <!-- Card 1 -->
@@ -81,72 +164,49 @@
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- HOROSKOP-RECHNER -->
-    <main class="calculator-wrapper">
-      <div class="configurator-container">
-        
-        <!-- Left Side: Product Showcase Column -->
-        <div class="product-showcase-column">
-          <div class="card-glass product-preview-card">
-            <!-- Premium CSS Book Mockup -->
-            <div class="book-mockup-wrapper">
-              <div class="book-mockup">
-                <div class="book-spine"></div>
-                <div class="book-cover">
-                  <div class="book-stars">★ ★ ★</div>
-                  <div class="book-icon">🐾</div>
-                  <h3 class="book-title">Hunde<br>Horoskop</h3>
-                  <span class="book-subtitle">Premium Edition</span>
-                  <div class="book-author">Amastria</div>
-                </div>
+  <!-- RECHNER Sektion (sec-navy) -->
+  <section class="sec-navy sec-calculator" id="rechner-section">
+    <div class="container">
+      <div class="calculator-section-header">
+        <h2>Berechne euer persönliches Hundehoroskop</h2>
+        <p class="calculator-subline">
+          Gib einfach die Geburts- oder Verhaltensdaten deiner Fellnase ein, um das detaillierte Astrologie- und Beziehungsprofil zu erstellen.
+        </p>
+      </div>
+      
+      <main class="calculator-wrapper" style="max-width: 720px; margin: 0 auto;">
+        <!-- Right Side: Configurator Card (Centered, Single-Column) -->
+        <div class="card-glass configurator-form-card" id="calculator-card" style="padding: 40px;">
+          
+          <!-- Top Product Banner inside the form card -->
+          <div class="form-product-banner">
+            <div class="form-product-info">
+              <h3>Hundehoroskop Premium</h3>
+              <p>Das liebevoll gestaltete E-Book (PDF) über die Seele deines Hundes – berechnet nach Radix-Daten und Seelen-Synastrie.</p>
+              <div class="form-product-features">
+                <span>✦ 9 Kapitel (7 A4-Seiten)</span>
+                <span>✦ Synastrie-Verbindung</span>
+                <span>✦ Sofortiger E-Mail-Versand</span>
               </div>
             </div>
             
-            <div class="product-info-content">
-              <h3>Hundehoroskop Premium</h3>
-              <p class="product-summary-text">
-                Das liebevoll gestaltete Buch (PDF) über die Seele deines Hundes – berechnet nach Radix-Daten, Planetentransiten und Seelen-Synastrie.
-              </p>
-              
-              <ul class="product-bullets">
-                <li><span>✦</span> <strong>9 Kapitel</strong> (ca. 20-25 Seiten)</li>
-                <li><span>✦</span> Charakter-Analyse & Ur-Instinkte</li>
-                <li><span>✦</span> Sonne, Mond & Aszendent deines Hundes</li>
-                <li><span>✦</span> Partnerschafts-Synastrie zu dir</li>
-                <li><span>✦</span> Heilsteine, Rituale & Alltagstipps</li>
-              </ul>
-              
-              <div class="purchase-banner-box">
-                <div class="price-display">
-                  <span class="price-label">Einmaliger Kauf</span>
-                  <span class="dynamic-price">CHF 19.90</span>
-                </div>
-                <div class="trust-bullets">
-                  <span>🔒 SSL-gesichert via Stripe</span>
-                  <span>⚡ PDF-Sofort-Download</span>
-                  <span>✨ Kein Abonnement</span>
-                </div>
-              </div>
-              
-              <div class="sample-btn-wrapper" style="width: 100%;">
-                <button type="button" class="btn-sample-highlight-new" id="btn-load-sample">
-                  📖 Kostenlose Muster-Vorschau
-                </button>
-              </div>
+            <div class="form-price-display">
+              <span class="price-lbl">Einmalig</span>
+              <span class="dynamic-price form-price-val">CHF 19.90</span>
+              <span class="price-sub">🔒 Sichere SSL-Zahlung via Stripe</span>
             </div>
           </div>
-        </div>
-
-        <!-- Right Side: Configurator Card -->
-        <div class="card-glass configurator-form-card" id="calculator-card">
-          <div class="configurator-form-header">
-            <h2>Hundehoroskop konfigurieren</h2>
-            <p>Trage die Details deines Hundes ein, um die Berechnung zu starten.</p>
+          
+          <div class="sample-btn-wrapper" style="text-align: center; margin-bottom: 30px;">
+            <button type="button" class="btn-sample-highlight-new" id="btn-load-sample" style="width: auto; padding: 10px 24px;">
+              📖 Kostenlose Muster-Vorschau
+            </button>
           </div>
-        
-        <form id="horoscope-form">
+
+          <form id="horoscope-form">
           <!-- Wizard Progress Indicator -->
           <div class="wizard-progress">
             <div class="wizard-step-indicator active" data-step-indicator="1">
@@ -411,33 +471,68 @@
       </div> <!-- configurator-form-card -->
     </div> <!-- configurator-container -->
   </main>
+  </div> <!-- container -->
+  </section> <!-- sec-calculator -->
 
-    <!-- MAGISCHE LADEANIMATION -->
-    <div class="loader-overlay" id="magic-loader">
-      <div class="solar-system">
-        <div class="sun"></div>
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-      </div>
-      <p id="loader-text">Planeten werden ausgerichtet...</p>
+  <!-- MAGISCHE LADEANIMATION -->
+  <div class="loader-overlay" id="magic-loader">
+    <div class="solar-system">
+      <div class="sun"></div>
+      <div class="orbit orbit-1"></div>
+      <div class="orbit orbit-2"></div>
     </div>
+    <p id="loader-text">Planeten werden ausgerichtet...</p>
+  </div>
 
-    <section class="result-section" id="horoscope-result" style="margin-bottom: 80px;">
+  <!-- RESULTAT Sektion (sec-deep) -->
+  <section class="sec-deep sec-result result-section" id="horoscope-result" style="display: none; margin-bottom: 0;">
+    <div class="container">
+      
+      <!-- Sample Preview Banner -->
+      <div id="sample-preview-banner" class="form-info-text" style="display: none; background: rgba(245, 158, 11, 0.15); border-color: var(--gold); color: var(--gold-light); font-size: 1rem; padding: 15px; margin-bottom: 25px; font-weight: 600; text-align: center;">
+        ✨ Dies ist eine inhaltliche Vorschau eines Premium-Hundehoroskops für Dante & Claudia ✨
+      </div>
+
+      <!-- PDF TRANSPARENCY NOTICE BANNER -->
+      <div class="transparency-notice-banner">
+        <div class="notice-icon">📋</div>
+        <div class="notice-text">
+          <strong>Inhaltliche Text-Vorschau:</strong> Dies ist eine Vorschau der Kapiteltexte deines Hundehoroskops. Nach der Berechnung erhältst du das vollständig gestaltete PDF-E-Book (7 A4-Seiten, druckfertig mit Deckblatt, persönlicher Widmung und edlem Buch-Layout) direkt per E-Mail geliefert.
+        </div>
+      </div>
+
       <div class="birth-card premium-card">
         
-        <!-- Sample Preview Banner -->
-        <div id="sample-preview-banner" class="form-info-text" style="display: none; background: rgba(245, 158, 11, 0.15); border-color: var(--gold); color: var(--gold-light); font-size: 1rem; padding: 15px; margin-bottom: 25px; font-weight: 600; text-align: center;">
-          ✨ Dies ist eine Vorschau eines vollständigen Premium-Hundehoroskops für Dante & Claudia ✨
-        </div>
-
         <div class="premium-header">
           <div class="premium-tagline" id="res-tagline">Deine kosmische Seelenreise mit deinem Hund</div>
+          
+          <!-- ASTROLOGY SVG RADIX WHEEL -->
+          <div class="astrology-radix-wheel-container">
+            <svg class="astrology-radix-svg" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="75" stroke="rgba(245,158,11,0.15)" stroke-width="1.5" fill="none"/>
+              <circle cx="80" cy="80" r="55" stroke="rgba(245,158,11,0.25)" stroke-width="1" fill="none" stroke-dasharray="2 3"/>
+              <circle cx="80" cy="80" r="35" stroke="rgba(245,158,11,0.15)" stroke-width="1" fill="none"/>
+              <circle cx="80" cy="80" r="15" stroke="var(--gold)" stroke-width="0.75" fill="none"/>
+              <line x1="80" y1="5" x2="80" y2="155" stroke="rgba(255,255,255,0.06)" stroke-width="0.75"/>
+              <line x1="5" y1="80" x2="155" y2="80" stroke="rgba(255,255,255,0.06)" stroke-width="0.75"/>
+              <line x1="27" y1="27" x2="133" y2="133" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" stroke-dasharray="2 2"/>
+              <line x1="27" y1="133" x2="133" y2="27" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" stroke-dasharray="2 2"/>
+              <circle cx="80" cy="80" r="3" fill="var(--gold)"/>
+              <circle cx="80" cy="25" r="2.5" fill="var(--gold-light)"/>
+              <circle cx="125" cy="55" r="2" fill="var(--gold-light)"/>
+              <circle cx="45" cy="115" r="2.5" fill="var(--gold-light)"/>
+              <circle cx="95" cy="130" r="2" fill="var(--gold-light)"/>
+              <path d="M 80,80 L 80,25" stroke="rgba(245,158,11,0.3)" stroke-width="0.75"/>
+              <path d="M 80,80 L 125,55" stroke="rgba(245,158,11,0.3)" stroke-width="0.75"/>
+              <path d="M 80,80 L 45,115" stroke="rgba(245,158,11,0.3)" stroke-width="0.75"/>
+            </svg>
+          </div>
+
           <h1 id="res-dog-name" style="margin-top: 15px; font-size: 2.5rem; text-shadow: 0 0 15px rgba(245, 158, 11, 0.3); color: var(--gold); border: none; letter-spacing: 0.05em; display: block; left: auto; transform: none;">DANTE</h1>
           <div class="premium-subtitle" id="res-subtitle" style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.15em; font-weight: 600; margin-top: 6px; border: none;">KOSMISCHE GEBURTSKARTE • RÜDE • LABRADOR</div>
         </div>
-
         <!-- 1. KOSMISCHES WESEN -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>✨ 1. KOSMISCHES WESEN</h2>
           <div class="cosmic-title-box">
             <span class="cosmic-dog-title" id="res-cosmic-title">„Dante – Der feurige Pfadfinder des Mutes“</span>
@@ -468,10 +563,8 @@
           </p>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 2. PERSÖNLICHKEIT & CHARAKTER -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>🌟 2. PERSÖNLICHKEIT & CHARAKTER</h2>
           
           <div class="sub-section">
@@ -496,10 +589,8 @@
           </div>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 3. GESUNDHEIT & VITALITÄT -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>💚 3. GESUNDHEIT & VITALITÄT</h2>
           
           <div class="sub-section">
@@ -524,10 +615,8 @@
           </div>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 4. HERZENSBINDUNG & RUDELLEBEN -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>❤️ 4. HERZENSBINDUNG & RUDELLEBEN</h2>
           
           <div class="sub-section">
@@ -552,10 +641,8 @@
           </div>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 5. MENSCH-HUND SEELENVERBINDUNG -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>🌙 5. MENSCH-HUND SEELENVERBINDUNG</h2>
           <div class="cosmic-title-box">
             <span class="cosmic-dog-title" id="res-synastry-names">Claudia & Dante</span>
@@ -590,20 +677,16 @@
           </div>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 6. AKTUELLE KOSMISCHE PHASE -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>⭐ 6. AKTUELLE KOSMISCHE PHASE</h2>
           <p class="premium-text" id="res-current-phase">
             Dante befindet sich aktuell in der wichtigen Lebensphase: Welpen- & Entdeckerphase (Eine Zeit des wilden Lernens und der kosmischen Unbeschwertheit. Die Aura baut sich gerade auf.). In dieser Phase geht es kosmisch primär darum, die innere, seelische Bindung zu dir weiter zu zementieren und alte karmische Lernaufgaben abzuschließen. Er filtert Reize der Außenwelt nun bewusster und sucht vermehrt die geistige und körperliche Nähe zu seinem Lieblingsmenschen. In den kommenden 12 Monaten kündigt sich ein harmonischer, stärkender Stand des Planeten Jupiter an, der neue Lebenskraft, gesundheitliche Stabilität und energetische Fröhlichkeit in eure gemeinsame Verbindung spült. Gönne ihm in dieser Zeit viel bewusste Zuwendung.
           </p>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 7. DEINE 3 KOSMISCHEN ALLTAGSTIPPS -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>🌿 7. DEINE 3 KOSMISCHEN ALLTAGSTIPPS</h2>
           
           <div class="tip-card">
@@ -628,10 +711,8 @@
           </div>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 8. RAT DES KOSMOS -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>🔮 8. RAT DES KOSMOS</h2>
           
           <p class="premium-text" id="res-cosmic-advice" style="font-style: italic;">
@@ -646,10 +727,8 @@
           </div>
         </div>
 
-        <div class="card-divider"></div>
-
         <!-- 9. HUNDE-KOMPASS PREMIUM -->
-        <div class="premium-section">
+        <div class="premium-section-card card-glass">
           <h2>🐾 9. HUNDE-KOMPASS PREMIUM</h2>
           
           <div class="kompass-grid">
@@ -714,7 +793,7 @@
           </div>
         </div>
 
-      </div>
+      </div> <!-- Close birth-card premium-card -->
 
       <!-- Action Buttons -->
       <div class="action-buttons">
@@ -722,18 +801,16 @@
           ✦ Weiteres Horoskop berechnen
         </button>
       </div>
-    </section>
+    </div> <!-- Close container -->
+  </section> <!-- Close sec-result -->
 
-    <!-- INTRO-SECTION WITH THE 4 ELEMENTS GRID -->
-    <section class="intro-section" style="margin-top: 40px;">
-      <article class="content-block" style="background: rgba(11, 14, 38, 0.45); border: 1px solid var(--border-glass);">
+  <!-- ELEMETE Sektion (sec-navy) -->
+  <section class="sec-navy sec-elements" id="elements-section">
+    <div class="container">
+      <article class="content-block" style="background: rgba(11, 14, 38, 0.45); border: 1px solid var(--border-glass); margin-bottom: 0;">
         <h2>Was ist ein Hundehoroskop und wie funktioniert es?</h2>
         <p>
-          Die Idee der Astrologie ist uralt und besagt, dass die Planetenkonstellationen zum Zeitpunkt der Geburt prägenden Einfluss auf das Leben und das Wesen eines Lebewesens haben. Hundehalter:innen wissen längst: Jeder Hund ist ein absolutes Unikat. 
-          Während ein Hund mutig voranschreitet, zieht ein anderer die Sicherheit des Sofas vor. Manche Hunde scheinen die Stimmungen ihrer Besitzer wortlos zu spüren, während andere einen charmanten Dickkopf an den Tag legen.
-        </p>
-        <p>
-          Ein <strong>Hundehoroskop</strong> berechnet das astronomische Tierkreiszeichen (Sternzeichen) Ihres Hundes exakt auf Basis seines Geburtsdatums. Die zwölf Sternzeichen werden traditionell vier Elementen zugeordnet:
+          Die Tier-Astrologie besagt, dass Planetenkonstellationen zum Zeitpunkt der Geburt das Wesen und Temperament eines Hundes prägen. Jedes Tierkreiszeichen wird einem der vier kosmischen Elemente zugeordnet, die fundamentale Charaktereigenschaften wie Mut, Sensibilität oder Gelassenheit beeinflussen:
         </p>
 
         <div class="elements-grid">
@@ -767,19 +844,21 @@
           </div>
         </div>
 
-        <p style="margin: 0;">
+        <p style="margin: 20px 0 0 0; text-align: center; font-style: italic; font-size: 0.95rem; color: var(--gold-light);">
           Mit unserem personalisierten Rechner ermitteln wir diese Einflüsse und verbinden sie mit einer astrologischen Tagesformkurve (z. B. Kuschellust oder Gehorsam), die sich aus dem Rhythmus der Himmelskörper ableitet.
         </p>
       </article>
-    </section>
+    </div>
+  </section>
 
     <!-- SEO WISSENS- UND INFORMATIONSBEREICH (Crawlable Content) -->
-    <section class="seo-sections">
+    <section class="sec-deep sec-seo">
+      <div class="container">
 
-      <!-- Artikel 2: Die 12 Tierkreiszeichen der Hunde im Überblick -->
-      <div class="seo-card">
-        <h2>Die 12 Sternzeichen der Hunde im Kosmos</h2>
-        <div class="zodiac-grid">
+        <!-- Artikel 2: Die 12 Tierkreiszeichen der Hunde im Überblick -->
+        <div class="seo-card">
+          <h2>Die 12 Sternzeichen der Hunde im Kosmos</h2>
+          <div class="zodiac-grid">
           
           <!-- Widder -->
           <div class="zodiac-card" data-zodiac="widder">
@@ -1146,6 +1225,29 @@
             </div>
           </div>
         </div>
+
+        <!-- Shared Zodiac Teaser Card Drawer -->
+        <div id="zodiac-teaser-card" class="zodiac-teaser-card" style="display: none;">
+          <div class="teaser-inner card-glass">
+            <button type="button" class="teaser-close" id="zodiac-teaser-close">&times;</button>
+            <div class="teaser-header">
+              <div class="teaser-icon-wrapper" id="teaser-zodiac-icon"></div>
+              <div class="teaser-meta">
+                <h3 id="teaser-zodiac-name">Sternzeichen</h3>
+                <span class="teaser-date" id="teaser-zodiac-date">Datum</span>
+                <div id="teaser-zodiac-element-container"></div>
+              </div>
+            </div>
+            <div class="teaser-body">
+              <p id="teaser-zodiac-text">Beschreibung...</p>
+            </div>
+            <div class="teaser-footer">
+              <button type="button" class="btn-primary btn-teaser-calculate" id="btn-teaser-calculate" data-zodiac-select="">
+                Analyse für meinen <span id="teaser-zodiac-name-btn">Hund</span> berechnen ✦
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- FAQ Bereich (für SEO/KI Rich Snippets) -->
@@ -1229,10 +1331,11 @@
         </div>
       </article>
 
+      </div>
     </section>
 
     <!-- KONTAKT FORMULAR -->
-    <section class="contact-section" id="kontakt-section" style="margin-top: 60px; margin-bottom: 40px;">
+    <section class="sec-navy sec-contact" id="kontakt-section">
       <div class="card-glass" style="max-width: 650px; margin: 0 auto; padding: 35px; border: 1px solid var(--border-gold);">
         <h2>🔮 Kontaktiere uns</h2>
         <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; margin-top: -10px;">
@@ -1266,8 +1369,6 @@
         </div>
       </div>
     </section>
-
-  </div>
 
   <!-- FOOTER -->
   <footer>

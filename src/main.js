@@ -212,49 +212,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 3b. Beispiel-Horoskop (Muster) laden
   const loadSampleBtn = document.getElementById("btn-load-sample");
+  const loadSampleHeroBtn = document.getElementById("btn-load-sample-hero");
   const previewBanner = document.getElementById("sample-preview-banner");
+
+  const loadSampleHandler = () => {
+    const sampleInput = {
+      dogName: "Dante",
+      dogGender: "m",
+      dogBreed: "Labrador",
+      isRescue: false,
+      dogBirthdate: "2025-12-06", // Schütze
+      dogBirthtime: "14:30",
+      dogBirthplace: "Zürich",
+      dogTraits: "",
+      ownerName: "Claudia",
+      ownerGender: "w",
+      ownerBirthdate: "1990-06-05", // Zwillinge
+      ownerBirthplace: "Zürich",
+      ownerBirthtime: "08:15"
+    };
+
+    // Generiere das Musterhoroskop
+    const sampleHoroscope = generateAmastriaPremiumHoroscope(sampleInput, null);
+
+    // Befülle die Sektionen im DOM
+    renderPremiumResult(sampleHoroscope);
+
+    // Zeige das Vorschau-Banner an
+    if (previewBanner) {
+      previewBanner.style.display = "block";
+    }
+
+    // Benenne den Reset-Button um für die Vorschau
+    if (newBtn) {
+      newBtn.textContent = "Persönliches Hundehoroskop berechnen";
+    }
+
+    // Zeige das Ergebnis
+    if (resultSection) {
+      resultSection.style.display = "block";
+      resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   if (loadSampleBtn) {
-    loadSampleBtn.addEventListener("click", () => {
-
-      const sampleInput = {
-        dogName: "Dante",
-        dogGender: "m",
-        dogBreed: "Labrador",
-        isRescue: false,
-        dogBirthdate: "2025-12-06", // Schütze
-        dogBirthtime: "14:30",
-        dogBirthplace: "Zürich",
-        dogTraits: "",
-        ownerName: "Claudia",
-        ownerGender: "w",
-        ownerBirthdate: "1990-06-05", // Zwillinge
-        ownerBirthplace: "Zürich",
-        ownerBirthtime: "08:15"
-      };
-
-      // Generiere das Musterhoroskop
-      const sampleHoroscope = generateAmastriaPremiumHoroscope(sampleInput, null);
-
-      // Befülle die Sektionen im DOM
-      renderPremiumResult(sampleHoroscope);
-
-      // Zeige das Vorschau-Banner an
-      if (previewBanner) {
-        previewBanner.style.display = "block";
-      }
-
-
-      // Benenne den Reset-Button um für die Vorschau
-      if (newBtn) {
-        newBtn.textContent = "Persönliches Hundehoroskop berechnen";
-      }
-
-      // Zeige das Ergebnis
-      if (resultSection) {
-        resultSection.style.display = "block";
-        resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
+    loadSampleBtn.addEventListener("click", loadSampleHandler);
+  }
+  if (loadSampleHeroBtn) {
+    loadSampleHeroBtn.addEventListener("click", loadSampleHandler);
   }
 
   // Tierschutz / Rescue Dog Modus umschalten
@@ -307,26 +312,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4b. Zodiac Grid Card Toggle Funktionalität
+  // 4b. Zodiac Grid Card Selection & Teaser Drawer Logic
   const zodiacCards = document.querySelectorAll(".zodiac-card");
-  zodiacCards.forEach(card => {
-    const header = card.querySelector(".zodiac-card-header");
-    if (header) {
-      header.addEventListener("click", () => {
-        const isActive = card.classList.contains("active");
+  const zodiacTeaserCard = document.getElementById("zodiac-teaser-card");
+  const teaserCloseBtn = document.getElementById("zodiac-teaser-close");
+  const teaserIcon = document.getElementById("teaser-zodiac-icon");
+  const teaserName = document.getElementById("teaser-zodiac-name");
+  const teaserDate = document.getElementById("teaser-zodiac-date");
+  const teaserElementContainer = document.getElementById("teaser-zodiac-element-container");
+  const teaserText = document.getElementById("teaser-zodiac-text");
+  const teaserCalculateBtn = document.getElementById("btn-teaser-calculate");
+  const teaserNameBtn = document.getElementById("teaser-zodiac-name-btn");
 
-        // Schließe alle anderen Sternzeichen-Karten
-        zodiacCards.forEach(c => c.classList.remove("active"));
-
-        // Umschalten der geklickten Karte
-        if (!isActive) {
-          card.classList.add("active");
-        }
-      });
-    }
-  });
-
-  // Zodiac Prefill Selection click listeners
   const zodiacPrefillDates = {
     widder: "2025-04-05",
     stier: "2025-05-05",
@@ -342,10 +339,59 @@ document.addEventListener("DOMContentLoaded", () => {
     fische: "2025-03-05"
   };
 
-  document.querySelectorAll(".btn-zodiac-select").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation(); // Avoid triggering accordion or parent card toggles
-      const zodiacId = btn.getAttribute("data-zodiac-select");
+  if (teaserCloseBtn && zodiacTeaserCard) {
+    teaserCloseBtn.addEventListener("click", () => {
+      zodiacTeaserCard.style.display = "none";
+      zodiacCards.forEach(c => c.classList.remove("active"));
+    });
+  }
+
+  zodiacCards.forEach(card => {
+    const header = card.querySelector(".zodiac-card-header");
+    if (header) {
+      header.addEventListener("click", () => {
+        // Toggle active styling on grid cards
+        zodiacCards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+
+        const zodiacId = card.getAttribute("data-zodiac");
+        const titleText = card.querySelector(".zodiac-card-header h3").textContent;
+        const dateRangeText = card.querySelector(".zodiac-date").textContent;
+        
+        // Clone elements safely
+        const svgElement = card.querySelector(".zodiac-svg").cloneNode(true);
+        const elementBadge = card.querySelector(".accordion-badge").cloneNode(true);
+        const descriptionText = card.querySelector(".zodiac-card-content p").textContent;
+
+        // Populate Teaser Card
+        if (teaserIcon) {
+          teaserIcon.innerHTML = "";
+          teaserIcon.appendChild(svgElement);
+        }
+        if (teaserName) teaserName.textContent = titleText;
+        if (teaserDate) teaserDate.textContent = dateRangeText;
+        if (teaserElementContainer) {
+          teaserElementContainer.innerHTML = "";
+          teaserElementContainer.appendChild(elementBadge);
+        }
+        if (teaserText) teaserText.textContent = descriptionText;
+        if (teaserNameBtn) teaserNameBtn.textContent = titleText;
+        if (teaserCalculateBtn) {
+          teaserCalculateBtn.setAttribute("data-zodiac-select", zodiacId);
+        }
+
+        // Display and scroll
+        if (zodiacTeaserCard) {
+          zodiacTeaserCard.style.display = "block";
+          zodiacTeaserCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      });
+    }
+  });
+
+  if (teaserCalculateBtn) {
+    teaserCalculateBtn.addEventListener("click", () => {
+      const zodiacId = teaserCalculateBtn.getAttribute("data-zodiac-select");
       const targetDate = zodiacPrefillDates[zodiacId];
       if (targetDate && dogBirthdate) {
         dogBirthdate.value = targetDate;
@@ -369,9 +415,16 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           dogBirthdate.classList.remove("flash-gold-input");
         }, 3000);
+
+        // Hide teaser card
+        if (zodiacTeaserCard) {
+          zodiacTeaserCard.style.display = "none";
+          zodiacCards.forEach(c => c.classList.remove("active"));
+        }
       }
     });
-  });
+  }
+
 
   // 5. Formularabsendung steuern (Berechnung)
   form.addEventListener("submit", async (e) => {

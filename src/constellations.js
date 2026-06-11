@@ -35,13 +35,23 @@ export function initConstellations(canvasId) {
     constructor(x, y) {
       this.x = x || Math.random() * canvas.width;
       this.y = y || Math.random() * canvas.height;
-      this.size = Math.random() * 1.8 + 0.5;
-      this.baseAlpha = Math.random() * 0.5 + 0.2;
+      this.size = Math.random() * 1.5 + 0.4;
+      this.baseAlpha = Math.random() * 0.4 + 0.2;
       this.alpha = this.baseAlpha;
-      this.flickerSpeed = Math.random() * 0.02 + 0.005;
+      this.flickerSpeed = Math.random() * 0.015 + 0.003;
       this.flickerDir = Math.random() > 0.5 ? 1 : -1;
-      this.speedX = (Math.random() - 0.5) * 0.08;
-      this.speedY = (Math.random() - 0.5) * 0.08;
+      this.speedX = (Math.random() - 0.5) * 0.06;
+      this.speedY = (Math.random() - 0.5) * 0.06;
+      
+      // Sternfarben wie bei cosmicupdate: 30% Lila, 20% Blau, 50% Silber-Weiß
+      const r = Math.random();
+      if (r < 0.3) {
+        this.colorType = 'purple';
+      } else if (r < 0.5) {
+        this.colorType = 'blue';
+      } else {
+        this.colorType = 'silver';
+      }
     }
 
     update() {
@@ -57,8 +67,8 @@ export function initConstellations(canvasId) {
 
       // Funkeln
       this.alpha += this.flickerSpeed * this.flickerDir;
-      if (this.alpha > 0.8) {
-        this.alpha = 0.8;
+      if (this.alpha > 0.85) {
+        this.alpha = 0.85;
         this.flickerDir = -1;
       } else if (this.alpha < 0.1) {
         this.alpha = 0.1;
@@ -69,14 +79,30 @@ export function initConstellations(canvasId) {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(245, 158, 11, ${this.alpha})`; // Warmes Gold/Amber
+      
+      let fillStyle = `rgba(255, 255, 255, ${this.alpha})`; // Silber-Weiß
+      if (this.colorType === 'purple') {
+        fillStyle = `rgba(168, 85, 247, ${this.alpha * 0.8})`; // Lila
+      } else if (this.colorType === 'blue') {
+        fillStyle = `rgba(99, 102, 241, ${this.alpha * 0.8})`; // Blau
+      }
+      
+      ctx.fillStyle = fillStyle;
       ctx.fill();
 
       // Zarter Schein für größere Sterne
-      if (this.size > 1.5) {
+      if (this.size > 1.2) {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245, 158, 11, ${this.alpha * 0.15})`;
+        ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+        
+        let glowStyle = `rgba(255, 255, 255, ${this.alpha * 0.08})`;
+        if (this.colorType === 'purple') {
+          glowStyle = `rgba(168, 85, 247, ${this.alpha * 0.12})`;
+        } else if (this.colorType === 'blue') {
+          glowStyle = `rgba(99, 102, 241, ${this.alpha * 0.12})`;
+        }
+        
+        ctx.fillStyle = glowStyle;
         ctx.fill();
       }
     }
@@ -101,12 +127,13 @@ export function initConstellations(canvasId) {
 
         // Verbinde nahe beieinander liegende Sterne schwach
         if (distance < 110) {
-          const alpha = (1 - distance / 110) * 0.12;
+          const alpha = (1 - distance / 110) * 0.09;
           ctx.beginPath();
           ctx.moveTo(stars[i].x, stars[i].y);
           ctx.lineTo(stars[j].x, stars[j].y);
-          ctx.strokeStyle = `rgba(217, 119, 6, ${alpha})`; // Goldene Verbindungslinien
-          ctx.lineWidth = 0.5;
+          // Zarte lila Verbindungslinien wie bei cosmicupdate
+          ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`;
+          ctx.lineWidth = 0.45;
           ctx.stroke();
         }
       }
@@ -118,12 +145,13 @@ export function initConstellations(canvasId) {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < mouse.radius) {
-          const alpha = (1 - distance / mouse.radius) * 0.25;
+          const alpha = (1 - distance / mouse.radius) * 0.18;
           ctx.beginPath();
           ctx.moveTo(stars[i].x, stars[i].y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(251, 191, 36, ${alpha})`; // Hellerer Goldton bei Mausnähe
-          ctx.lineWidth = 0.6;
+          // Zarter lila/blauer Glow bei Mausnähe
+          ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`;
+          ctx.lineWidth = 0.55;
           ctx.stroke();
         }
       }
@@ -138,7 +166,7 @@ export function initConstellations(canvasId) {
 
     ctx.save();
     ctx.shadowBlur = 15;
-    ctx.shadowColor = "rgba(245, 158, 11, 0.4)";
+    ctx.shadowColor = "rgba(168, 85, 247, 0.3)";
 
     // Berechne reale Pixel-Koordinaten
     const points = pawConstellation.map(p => ({
@@ -163,7 +191,7 @@ export function initConstellations(canvasId) {
     ctx.lineTo(points[8].x, points[8].y);
     ctx.closePath();
 
-    ctx.strokeStyle = "rgba(245, 158, 11, 0.15)";
+    ctx.strokeStyle = "rgba(168, 85, 247, 0.15)";
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -171,19 +199,19 @@ export function initConstellations(canvasId) {
     points.forEach(p => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(251, 191, 36, 0.8)";
+      ctx.fillStyle = "rgba(192, 132, 252, 0.8)";
       ctx.fill();
 
       // Pulsierender Lichtkreis drumherum
       const pulseSize = 3 + Math.sin(Date.now() * 0.002) * 2;
       ctx.beginPath();
       ctx.arc(p.x, p.y, pulseSize, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(251, 191, 36, 0.2)";
+      ctx.fillStyle = "rgba(168, 85, 247, 0.2)";
       ctx.fill();
     });
 
     // Sternbild-Beschriftung
-    ctx.fillStyle = "rgba(251, 191, 36, 0.35)";
+    ctx.fillStyle = "rgba(168, 85, 247, 0.35)";
     ctx.font = "italic 11px 'Outfit', sans-serif";
     ctx.fillText("Canis Majoris (Paws)", centerX - 50, centerY + (scale * 0.3) + 20);
 
