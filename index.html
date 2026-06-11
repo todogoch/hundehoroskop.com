@@ -81,27 +81,70 @@
           </p>
         </div>
       </div>
-      <div class="preview-cta-wrapper" style="margin-top: 35px; text-align: center;">
-        <button type="button" class="btn-sample-highlight" id="btn-load-sample">
-          Muster Hundehoroskop
-        </button>
-      </div>
     </section>
 
-    <!-- HOROSKOP-RECHNER SECTION HEADER -->
-    <header class="calculator-section-header">
-      <h2>Dein persönliches Hundehoroskop</h2>
-      <p class="calculator-subline">
-        Erhalte in wenigen Schritten eine tiefgründige Analyse über Charakter, Vitalität und eure Seelenverbindung.
-      </p>
-      <div class="calculator-price-badge">
-        <span>✨</span> <span class="dynamic-price">CHF 19.90</span> &bull; Einmaliger Kauf &bull; PDF-Sofort-Download
-      </div>
-    </header>
-
     <!-- HOROSKOP-RECHNER -->
-    <main class="calculator-wrapper" style="max-width: 850px; margin-top: 0;">
-      <div class="card-glass" id="calculator-card">
+    <main class="calculator-wrapper">
+      <div class="configurator-container">
+        
+        <!-- Left Side: Product Showcase Column -->
+        <div class="product-showcase-column">
+          <div class="card-glass product-preview-card">
+            <!-- Premium CSS Book Mockup -->
+            <div class="book-mockup-wrapper">
+              <div class="book-mockup">
+                <div class="book-spine"></div>
+                <div class="book-cover">
+                  <div class="book-stars">★ ★ ★</div>
+                  <div class="book-icon">🐾</div>
+                  <h3 class="book-title">Hunde<br>Horoskop</h3>
+                  <span class="book-subtitle">Premium Edition</span>
+                  <div class="book-author">Amastria</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="product-info-content">
+              <h3>Hundehoroskop Premium</h3>
+              <p class="product-summary-text">
+                Das liebevoll gestaltete Buch (PDF) über die Seele deines Hundes – berechnet nach Radix-Daten, Planetentransiten und Seelen-Synastrie.
+              </p>
+              
+              <ul class="product-bullets">
+                <li><span>✦</span> <strong>9 Kapitel</strong> (ca. 20-25 Seiten)</li>
+                <li><span>✦</span> Charakter-Analyse & Ur-Instinkte</li>
+                <li><span>✦</span> Sonne, Mond & Aszendent deines Hundes</li>
+                <li><span>✦</span> Partnerschafts-Synastrie zu dir</li>
+                <li><span>✦</span> Heilsteine, Rituale & Alltagstipps</li>
+              </ul>
+              
+              <div class="purchase-banner-box">
+                <div class="price-display">
+                  <span class="price-label">Einmaliger Kauf</span>
+                  <span class="dynamic-price">CHF 19.90</span>
+                </div>
+                <div class="trust-bullets">
+                  <span>🔒 SSL-gesichert via Stripe</span>
+                  <span>⚡ PDF-Sofort-Download</span>
+                  <span>✨ Kein Abonnement</span>
+                </div>
+              </div>
+              
+              <div class="sample-btn-wrapper" style="width: 100%;">
+                <button type="button" class="btn-sample-highlight-new" id="btn-load-sample">
+                  📖 Kostenlose Muster-Vorschau
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Configurator Card -->
+        <div class="card-glass configurator-form-card" id="calculator-card">
+          <div class="configurator-form-header">
+            <h2>Hundehoroskop konfigurieren</h2>
+            <p>Trage die Details deines Hundes ein, um die Berechnung zu starten.</p>
+          </div>
         
         <form id="horoscope-form">
           <!-- Wizard Progress Indicator -->
@@ -365,8 +408,9 @@
             </div>
           </div>
         </form>
-      </div>
-    </main>
+      </div> <!-- configurator-form-card -->
+    </div> <!-- configurator-container -->
+  </main>
 
     <!-- MAGISCHE LADEANIMATION -->
     <div class="loader-overlay" id="magic-loader">
