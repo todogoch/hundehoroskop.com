@@ -1076,7 +1076,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const acceptEssentialBtn = document.getElementById("cookie-accept-essential");
 
   if (cookieBanner) {
-    const consent = localStorage.getItem("cookie-consent");
+    let consent = null;
+    try {
+      consent = localStorage.getItem("cookie-consent");
+    } catch (e) {
+      console.warn("Could not read cookie-consent from localStorage:", e);
+    }
+
     if (!consent) {
       setTimeout(() => {
         cookieBanner.style.display = "block";
@@ -1089,7 +1095,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     acceptAllBtn.addEventListener("click", () => {
-      localStorage.setItem("cookie-consent", "all");
+      try {
+        localStorage.setItem("cookie-consent", "all");
+      } catch (e) {
+        console.warn("Could not save cookie-consent to localStorage:", e);
+      }
       cookieBanner.classList.remove("show");
       setTimeout(() => {
         cookieBanner.style.display = "none";
@@ -1098,11 +1108,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     acceptEssentialBtn.addEventListener("click", () => {
-      localStorage.setItem("cookie-consent", "essential");
+      try {
+        localStorage.setItem("cookie-consent", "essential");
+      } catch (e) {
+        console.warn("Could not save cookie-consent to localStorage:", e);
+      }
       cookieBanner.classList.remove("show");
       setTimeout(() => {
         cookieBanner.style.display = "none";
       }, 400);
+    });
+  }
+
+  // --- Mobile Navigation Toggle ---
+  const mobileToggleBtn = document.getElementById("mobile-nav-toggle");
+  const headerNav = document.getElementById("header-nav");
+
+  if (mobileToggleBtn && headerNav) {
+    mobileToggleBtn.addEventListener("click", () => {
+      mobileToggleBtn.classList.toggle("open");
+      headerNav.classList.toggle("mobile-open");
+    });
+
+    // Close menu when any nav link is clicked
+    const navLinks = headerNav.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileToggleBtn.classList.remove("open");
+        headerNav.classList.remove("mobile-open");
+      });
     });
   }
 

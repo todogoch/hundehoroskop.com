@@ -37,6 +37,34 @@
   <!-- Magischer Partikel-Hintergrund -->
   <canvas id="constellations-bg"></canvas>
 
+  <!-- Premium Navigationsmenü -->
+  <header class="global-header">
+    <div class="header-container">
+      <a href="/" class="header-logo">
+        <img src="/logo-hundehoroskop.png" alt="Hundehoroskop Logo" class="logo-img">
+      </a>
+      
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" id="mobile-nav-toggle">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <nav class="header-nav" id="header-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#rechner-section" class="nav-link">Horoskop berechnen</a></li>
+          <li class="nav-item"><a href="#sec-preview-usp" class="nav-link">Was uns unterscheidet</a></li>
+          <li class="nav-item"><a href="/uber-uns.html" class="nav-link">Über uns</a></li>
+          <li class="nav-item"><a href="#kontakt-section" class="nav-link">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta-wrapper">
+        <a href="#rechner-section" class="btn-primary header-cta-btn" id="header-cta-btn">Kostenlose Vorschau</a>
+      </div>
+    </div>
+  </header>
+
   <!-- HERO Sektion (sec-deep) -->
   <section class="sec-deep sec-hero">
     <div class="container">
@@ -46,7 +74,7 @@
           <p>
             Hunde sind treue Seelenpartner, deren Charaktereigenschaften, Vorlieben und Macken oft tief im Kosmos verwurzelt sind. 
             Berechne das personalisierte Premium-Hundehoroskop deiner Fellnase und entdecke das energetische Zusammenspiel der Sterne, 
-            die Synastrie-Verbindung zu dir sowie wertvolle astrologische Alltagstipps.
+            eure kosmische Verbindung sowie wertvolle und praktische Alltagstipps.
           </p>
           <div class="hero-cta-buttons">
             <a href="#rechner-section" class="btn-primary hero-btn-main">Jetzt Horoskop berechnen ✦</a>
@@ -112,15 +140,13 @@
           <div class="chapters-card card-glass">
           <div class="chapters-card-header">
             <h3>Inhalt des Premium-Horoskops</h3>
-            <span class="chapters-stats">9 Kapitel &bull; 7 A4-Seiten</span>
-          </div>
-            <ul class="chapters-ul">
+            <span class="chapters-stats">9 Kapit            <ul class="chapters-ul">
               <li><span class="chapter-icon">🌌</span> <strong>1. Das kosmische Wesen:</strong> Sternzeichen, Mond & Aszendent</li>
               <li><span class="chapter-icon">🌟</span> <strong>2. Charakter & Temperament:</strong> Stärken und Herausforderungen</li>
               <li><span class="chapter-icon">💚</span> <strong>3. Gesundheit & Vitalität:</strong> Energielevel & sensible Zonen</li>
               <li><span class="chapter-icon">❤️</span> <strong>4. Herzensbindung:</strong> Verhältnis zu Mensch & Tier</li>
-              <li><span class="chapter-icon">🤝</span> <strong>5. Seelenverbindung:</strong> Partnerschafts-Synastrie zum Halter</li>
-              <li><span class="chapter-icon">🔮</span> <strong>6. Aktuelle Phase:</strong> Planetentransite deines Hundes</li>
+              <li><span class="chapter-icon">🤝</span> <strong>5. Eure Seelenverbindung:</strong> Euer persönlicher Beziehungs-Match</li>
+              <li><span class="chapter-icon">🔮</span> <strong>6. Aktuelle Phase:</strong> Lebensphase & aktuelle Jahrestrends</li>
               <li><span class="chapter-icon">🌿</span> <strong>7. 3 Kosmische Alltagstipps:</strong> Rituale & Verhaltenshilfen</li>
               <li><span class="chapter-icon">✨</span> <strong>8. Rat des Kosmos:</strong> Botschaft & gemeinsames Ritual</li>
               <li><span class="chapter-icon">🧭</span> <strong>9. Hunde-Kompass Premium:</strong> Schutzsteine & Kraftorte</li>
@@ -132,32 +158,83 @@
   </section>
 
   <!-- PREVIEW Sektion (Vorteile) (sec-deep) -->
-  <section class="sec-deep sec-preview">
+  <section class="sec-deep sec-preview" id="sec-preview-usp">
     <div class="container">
-      <h2>Was du im persönlichen Premium-Hundehoroskop erfährst</h2>
+      <h2>Was macht unser Hundehoroskop so einzigartig?</h2>
+      <p class="section-intro-text" style="max-width: 720px; margin: 0 auto 40px auto; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; text-align: center;">
+        Gewöhnliche Horoskope vergleichen nur das einfache Sternzeichen (wie „Löwe“ oder „Stier“) und nutzen vorgefertigte Standardtexte. 
+        Bei Amastria berechnen wir stattdessen das <strong>vollständige, individuelle Geburtshoroskop (die Radix)</strong> deines Hundes und führen ein echtes astrologisches Beziehungs-Matching mit deinen eigenen Daten durch.
+      </p>
+
+      <!-- Die Berechnungs-Formel in einfachen Worten -->
+      <div class="formula-banner card-glass" style="margin-bottom: 50px; padding: 30px; text-align: center; border-radius: 16px; border: 1px solid var(--border-color); background: rgba(11, 14, 38, 0.45); position: relative; overflow: hidden;">
+        <div style="font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px;">Die Amastria-Formel für eure Verbindung</div>
+        
+        <div class="formula-flex" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+          <!-- Box 1 -->
+          <div class="formula-box" style="background: rgba(4, 6, 15, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 12px; min-width: 180px; text-align: left;">
+            <span style="font-size: 1.5rem; display: block; margin-bottom: 5px;">🐾</span>
+            <strong style="color: #ffffff; font-size: 0.9rem; display: block;">Geburtsdaten deines Hundes</strong>
+            <span style="color: var(--text-muted); font-size: 0.75rem; display: block; margin-top: 2px;">Tag, Ort &amp; genaue Uhrzeit</span>
+          </div>
+          
+          <span style="font-size: 1.5rem; font-weight: bold; color: var(--gold);">+</span>
+          
+          <!-- Box 2 -->
+          <div class="formula-box" style="background: rgba(4, 6, 15, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 12px; min-width: 180px; text-align: left;">
+            <span style="font-size: 1.5rem; display: block; margin-bottom: 5px;">👤</span>
+            <strong style="color: #ffffff; font-size: 0.9rem; display: block;">Deine Geburtsdaten</strong>
+            <span style="color: var(--text-muted); font-size: 0.75rem; display: block; margin-top: 2px;">(Herrchen oder Frauchen)</span>
+          </div>
+          
+          <span style="font-size: 1.5rem; font-weight: bold; color: var(--gold);">=</span>
+          
+          <!-- Result Box -->
+          <div class="formula-box result" style="background: rgba(245, 158, 11, 0.1); border: 1px solid var(--gold); padding: 15px 20px; border-radius: 12px; min-width: 200px; text-align: left; box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);">
+            <span style="font-size: 1.5rem; display: block; margin-bottom: 5px;">✨</span>
+            <strong style="color: var(--gold-light); font-size: 0.9rem; display: block;">Persönlicher Beziehungs-Match</strong>
+            <span style="color: #ffffff; font-size: 0.75rem; display: block; margin-top: 2px;">100% Euer Unikat als PDF</span>
+          </div>
+        </div>
+        
+        <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-main); max-w: 740px; margin: 0 auto; text-align: center;">
+          <strong>Warum wir so präzise sind:</strong> Für euer Hundehoroskop berechnen wir die exakte astronomische Konstellation aller Himmelskörper (Sonne, Mond, Aszendent und die Planeten) zum Zeitpunkt eures ersten Atemzugs. 
+          Unser System vergleicht die beiden Charts mathematisch Aspekt für Aspekt miteinander. Du erhältst somit kein standardisiertes Dokument, sondern eine maßgeschneiderte Charakter- und Beziehungsanalyse.
+          Das Besondere daran: Wir behalten die echte astrologische Tiefe bei, erklären dir aber jeden Aspekt und jede Planetenstellung in einer liebevollen, verständlichen Sprache ohne kompliziertes Fach-Chinesisch.
+        </p>
+      </div>
+
       <div class="preview-grid">
         <!-- Card 1 -->
         <div class="preview-card">
-          <div class="preview-icon">✨</div>
-          <h3>Die kosmische Seele</h3>
+          <div class="preview-icon">🌌</div>
+          <h3>Kosmische Charakter-Radix</h3>
           <p>
-            Ergründe das wahre Wesen deines Hundes. Erfahre, welche Ur-Instinkte durch sein kosmisches Element geprägt sind, was seine größten Stärken sind und wo er besondere Unterstützung braucht.
+            Erfahre das Zusammenspiel der drei wichtigsten astrologischen Faktoren deines Hundes:
+            Sein <strong>Sternzeichen (Sonne)</strong> beschreibt den grundlegenden Charakter. 
+            Sein <strong>Mondzeichen</strong> offenbart seine emotionale Innenwelt und wie er fühlt, wenn er allein ist. 
+            Sein <strong>Aszendent</strong> prägt seine erste Reaktion auf die Welt und sein Verhalten gegenüber Fremden. 
+            So verstehst du seine Ur-Instinkte auf einer völlig neuen Ebene.
           </p>
         </div>
         <!-- Card 2 -->
         <div class="preview-card">
           <div class="preview-icon">💚</div>
-          <h3>Alltag & Vitalität</h3>
+          <h3>Praktischer Alltag &amp; Vitalität</h3>
           <p>
-            Erhalte astrologische Tipps für den Alltag. Verstehe, wie deine Fellnase energetisch tickt, warum sie in bestimmten Situationen ängstlich reagiert und was ihre Lebensenergie stärkt.
+            Wir übersetzen astrologische Planeten-Transite in nützliche Alltagshilfen. 
+            Verstehe die Rhythmen deiner Fellnase: Warum ist sie an manchen Tagen unruhig und an anderen tiefenentspannt? 
+            Du erhältst konkrete Tipps zu beruhigenden Ritualen, den optimalen Auslaufzeiten und den empfindlichen Körperzonen deines Hundes – auch bei geschätzten Daten von Tierschutzhunden hochpräzise anwendbar.
           </p>
         </div>
         <!-- Card 3 -->
         <div class="preview-card">
           <div class="preview-icon">🤝</div>
-          <h3>Eure Seelenverbindung</h3>
+          <h3>Euer Beziehungs-Match</h3>
           <p>
-            Entdecke eure tiefe spirituelle Verbindung. Erfahre in einer astrologischen Synastrie-Analyse, wie eure Energien zusammenwirken und was du von deiner Fellnase lernen kannst.
+            Das Herzstück deines PDFs. Wir legen eure beiden Geburts-Charts übereinander (astrologische Synastrie) und deuten eure Seelenverbindung:
+            <strong>Warum ihr euch im Leben gefunden habt</strong>, in welchen Bereichen eure Energien perfekt miteinander verschmelzen und wo kleine Reibungspunkte lauern können. 
+            Ein unschätzbar wertvoller Kompass für ein harmonisches und tiefes Verständnis im täglichen Zusammenleben.
           </p>
         </div>
       </div>
@@ -182,10 +259,10 @@
           <div class="form-product-banner">
             <div class="form-product-info">
               <h3>Hundehoroskop Premium</h3>
-              <p>Das liebevoll gestaltete E-Book (PDF) über die Seele deines Hundes – berechnet nach Radix-Daten und Seelen-Synastrie.</p>
+              <p>Das liebevoll gestaltete E-Book (PDF) über die Seele deines Hundes – berechnet nach den genauen Geburtskonstellationen und eurem Beziehungs-Match.</p>
               <div class="form-product-features">
                 <span>✦ 9 Kapitel (7 A4-Seiten)</span>
-                <span>✦ Synastrie-Verbindung</span>
+                <span>✦ Beziehungs-Match</span>
                 <span>✦ Sofortiger E-Mail-Versand</span>
               </div>
             </div>
@@ -230,7 +307,7 @@
               <div class="form-group">
                 <label for="dog-name">Name des Hundes <span class="required-star">*</span></label>
                 <input type="text" id="dog-name" placeholder="z. B. Ludmilla, Bello, Rocky..." required autocomplete="off">
-                <span class="field-help-text">Für die persönliche Ansprache deines Hundes im Horoskop-Buch.</span>
+                <span class="field-help-text">Für die persönliche Ansprache deines Hundes im Horoskop.</span>
               </div>
 
               <!-- GESCHLECHT -->
@@ -384,7 +461,7 @@
               <div class="form-group">
                 <label for="owner-name">Dein Name <span class="required-star">*</span></label>
                 <input type="text" id="owner-name" placeholder="Name..." required autocomplete="off">
-                <span class="field-help-text">Für die persönliche Widmung im Buch.</span>
+                <span class="field-help-text">Für die persönliche Widmung im PDF.</span>
               </div>
 
               <!-- HALTER EMAIL -->
@@ -494,7 +571,7 @@
       <div class="transparency-notice-banner">
         <div class="notice-icon">📋</div>
         <div class="notice-text">
-          <strong>Inhaltliche Text-Vorschau:</strong> Dies ist eine Vorschau der Kapiteltexte deines Hundehoroskops. Nach der Berechnung erhältst du das vollständig gestaltete PDF-E-Book (7 A4-Seiten, druckfertig mit Deckblatt, persönlicher Widmung und edlem Buch-Layout) direkt per E-Mail geliefert.
+          <strong>Inhaltliche Text-Vorschau:</strong> Dies ist eine Vorschau der Kapiteltexte deines Hundehoroskops. Nach der Berechnung erhältst du das vollständig gestaltete PDF (7 A4-Seiten, druckfertig mit Deckblatt, persönlicher Widmung und edlem Layout) direkt per E-Mail geliefert.
         </div>
       </div>
 
@@ -653,9 +730,9 @@
           </div>
 
           <div class="sub-section">
-            <h3>Stärkste Synastrie-Aspekte</h3>
+            <h3>Eure kosmische Verbindung</h3>
             <p class="premium-text" id="res-synastry-aspects">
-              Deine Venus (Zwillinge) bildet ein harmonisches Trigon zu Dantes Herrscherplanet Jupiter – die astrologische Signatur einer tiefen Seelenverbindung. Dein Aszendent schwingt in perfekter Resonanz mit Dantes Krebs-Aszendenten.
+              Dein Sternenprofil schwingt in perfekter Harmonie mit Dantes kosmischer Energie. Das ist das astrologische Zeichen einer tiefen Seelenverbindung. Ihr versteht euch oft ohne Worte und eure Charaktere ergänzen sich wunderbar im Alltag.
             </p>
           </div>
 
@@ -782,7 +859,7 @@
         <div class="card-divider" style="margin-top: 40px;"></div>
         
         <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; padding: 20px 0 0;">
-          Dieses Horoskop wurde exklusiv erstellt auf Basis der astrologischen Konstellation und der kosmischen Synastrie zwischen Hund und Halter.<br>
+          Dieses Horoskop wurde exklusiv erstellt auf Basis der astrologischen Konstellation und der kosmischen Verbindung zwischen Hund und Halter.<br>
           <strong>In kosmischer Verbundenheit, Deine AMASTRIA 🔮</strong>
           <br><br>
           <div style="border-top: 1px dashed rgba(255,255,255,0.06); padding-top: 15px; font-size: 0.72rem;">

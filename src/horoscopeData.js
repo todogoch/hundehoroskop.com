@@ -471,10 +471,9 @@ export function generateAmastriaPremiumHoroscope(input, apiPlacements) {
     loveHuman: loveHumanMap[dogSun.element],
     loveAnimals: `Grundsätzlich friedfertig und sozial. Braucht bei sehr stürmischen Artgenossen etwas Distanz zur Orientierung. Kleintiere werden mit großer ${dogSun.element === "Wasser" ? "Sanftheit" : "Vorsicht"} behandelt.`,
     loveShow: `Drückt sich durch stille körperliche Nähe, das Auflegen des Kopfes auf den Schoß, sanften Augenkontakt und kleine, beständige Begrüßungs-Rituale aus.`,
-    
     // 5. Mensch-Hund Seelenverbindung
     connectionSignature,
-    synastryAspects: `Deine Venus (${ownerZodiac.name}) bildet ein harmonisches Trigon zu ${dogName}s Herrscherplanet ${dogSun.planet} – die astrologische Signatur einer tiefen Seelenverbindung. Dein Aszendent schwingt in perfekter Resonanz mit ${dogName}s ${dogAsc.name}-Aszendenten.`,
+    synastryAspects: `Eure kosmischen Geburtsdaten harmonieren auf ganz besondere Weise. Das Sternenprofil deiner eigenen Geburt schwingt in perfekter Resonanz mit den Geburtskonstellationen von ${dogName}. Dies ist das Zeichen einer tiefen, intuitiven Seelenverbindung im Alltag: Ihr versteht euch oft ohne Worte, spürt die Stimmungen des anderen sofort und ergänzt euch wunderbar bei gemeinsamen Unternehmungen.`,
     dogNeedsFromOwner: `Deine ruhige, zentrierte Aufmerksamkeit. Wenn du gestresst bist, braucht ${dogName} 10 Minuten stilles Kuscheln mit ${posPronounMascNeutDative} ${ownerTerm} zum energetischen Ausgleich.`,
     ownerLearnsFromDog: `${dogName} ist dein${isFemale ? "e" : ""} täglich${isFemale ? "e" : "er"} ${isFemale ? "Lehrerin" : "Lehrer"} für Achtsamkeit und zeigt dir als ${ownerTerm}, was wahre Präsenz bedeutet. Nachtragend zu sein ist ${objectPronoun} völlig fremd – jeder Morgen ist ein kosmischer Neuanfang.`,
     
