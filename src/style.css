@@ -645,6 +645,7 @@ textarea {
   gap: 10px;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .btn-primary::after {
@@ -1109,6 +1110,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .btn-secondary:hover {
@@ -1130,6 +1132,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .btn-gold-border:hover {
@@ -2618,6 +2621,7 @@ footer p {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 15px rgba(245, 158, 11, 0.1);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .btn-sample-highlight-new:hover {
@@ -3411,5 +3415,106 @@ footer p {
     font-size: 0.72rem !important;
   }
 }
+
+/* MOCKUP PDF COVER DECKBLATT STYLES */
+.mock-logo-badge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  margin-top: 5px;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.mock-logo-main {
+  font-family: 'Cinzel', serif;
+  font-size: 0.52rem;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 2px;
+  font-weight: 600;
+  text-align: center;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.pdf-page-inner.cover .mock-content.cover {
+  gap: 4px;
+}
+
+.mock-cover-graphic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px 0;
+  height: 80px;
+  width: 80px;
+  position: relative;
+}
+
+.mock-cover-paw-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mock-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,0.4), transparent);
+  margin: 2px 0;
+}
+
+.mock-cosmic-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.65rem;
+  font-style: italic;
+  color: #ffffff;
+  margin: 2px 0;
+  text-align: center;
+  line-height: 1.3;
+  padding: 0 10px;
+  font-weight: 500;
+}
+
+.mock-badges-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 4px 0;
+  width: 100%;
+}
+
+.mock-badge-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3px 5px;
+  border-radius: 6px;
+  text-align: center;
+  flex: 1;
+  max-width: 65px;
+  box-sizing: border-box;
+}
+
+.mock-badge-box span {
+  display: block;
+  font-size: 0.42rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1px;
+  font-weight: 500;
+}
+
+.mock-badge-box strong {
+  display: block;
+  font-size: 0.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 
 
