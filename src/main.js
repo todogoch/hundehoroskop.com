@@ -1134,12 +1134,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (navOverlay) {
         navOverlay.classList.toggle("active", show);
       }
-      
-      if (show) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "auto";
-      }
     };
 
     mobileToggleBtn.addEventListener("click", () => toggleMenu());
