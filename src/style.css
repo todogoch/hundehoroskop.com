@@ -2632,6 +2632,12 @@ footer p {
   transform: translateY(-2px);
 }
 
+@media (min-width: 993px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
 /* RIGHT COLUMN: CONFIGURATOR CARD */
 .configurator-form-card {
   padding: 40px !important;
