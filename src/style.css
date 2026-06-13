@@ -3370,3 +3370,46 @@ footer p {
   transition: all 0.3s ease;
 }
 
+/* MOBILE RESPONSIVE OPTIMIZATIONS */
+@media (max-width: 768px) {
+  .premium-card {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+  .premium-text {
+    text-align: left;
+  }
+  .transparency-notice-banner {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .notice-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .tip-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 14px;
+  }
+  .tip-number {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-card {
+    padding: 24px 14px;
+    border-radius: 12px;
+  }
+  .premium-card h1 {
+    font-size: 2rem !important;
+  }
+  .premium-subtitle {
+    font-size: 0.72rem !important;
+  }
+}
+
+

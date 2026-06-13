@@ -211,56 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 3b. Beispiel-Horoskop (Muster) laden
-  const loadSampleBtn = document.getElementById("btn-load-sample");
-  const loadSampleHeroBtn = document.getElementById("btn-load-sample-hero");
   const previewBanner = document.getElementById("sample-preview-banner");
-
-  const loadSampleHandler = () => {
-    const sampleInput = {
-      dogName: "Dante",
-      dogGender: "m",
-      dogBreed: "Labrador",
-      isRescue: false,
-      dogBirthdate: "2025-12-06", // Schütze
-      dogBirthtime: "14:30",
-      dogBirthplace: "Zürich",
-      dogTraits: "",
-      ownerName: "Claudia",
-      ownerGender: "w",
-      ownerBirthdate: "1990-06-05", // Zwillinge
-      ownerBirthplace: "Zürich",
-      ownerBirthtime: "08:15"
-    };
-
-    // Generiere das Musterhoroskop
-    const sampleHoroscope = generateAmastriaPremiumHoroscope(sampleInput, null);
-
-    // Befülle die Sektionen im DOM
-    renderPremiumResult(sampleHoroscope);
-
-    // Zeige das Vorschau-Banner an
-    if (previewBanner) {
-      previewBanner.style.display = "block";
-    }
-
-    // Benenne den Reset-Button um für die Vorschau
-    if (newBtn) {
-      newBtn.textContent = "Persönliches Hundehoroskop berechnen";
-    }
-
-    // Zeige das Ergebnis
-    if (resultSection) {
-      resultSection.style.display = "block";
-      resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  if (loadSampleBtn) {
-    loadSampleBtn.addEventListener("click", loadSampleHandler);
-  }
-  if (loadSampleHeroBtn) {
-    loadSampleHeroBtn.addEventListener("click", loadSampleHandler);
-  }
 
   // Tierschutz / Rescue Dog Modus umschalten
   rescueCheckbox.addEventListener("change", () => {
