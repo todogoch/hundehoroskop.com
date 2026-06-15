@@ -878,12 +878,7 @@ document.addEventListener("DOMContentLoaded", () => {
       debounceTimeout = setTimeout(async () => {
         try {
           const response = await fetch(
-            `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(val)}&format=json&limit=5&addressdetails=1`,
-            {
-              headers: {
-                "User-Agent": "Amastria-Hundehoroskop-Geocoder"
-              }
-            }
+            `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(val)}&format=json&limit=5&addressdetails=1`
           );
           if (response.ok) {
             const data = await response.json();
@@ -1022,53 +1017,132 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Cookie Consent Banner Logic ---
+  // --- Cookie Consent Banner Logic ---
   const cookieBanner = document.getElementById("cookie-consent-banner");
   const acceptAllBtn = document.getElementById("cookie-accept-all");
   const acceptEssentialBtn = document.getElementById("cookie-accept-essential");
+  const adjustBtn = document.getElementById("cookie-btn-adjust");
+  
+  const mainBar = document.getElementById("cookie-main-bar");
+  const preferencesPanel = document.getElementById("cookie-preferences");
+  const backdrop = document.getElementById("cookie-backdrop");
+  
+  const prefBackBtn = document.getElementById("cookie-pref-back");
+  const prefSaveBtn = document.getElementById("cookie-pref-save");
+  const analyticsToggle = document.getElementById("pref-analytics-toggle");
+  const analyticsCheckbox = document.getElementById("analytics-checkbox");
 
   if (cookieBanner) {
+    // Dynamic Brand Setting
+    const isHunde = window.location.hostname.includes("hundehorosko") ||
+                    window.location.hostname.includes("hundehorosop") ||
+                    window.location.hostname.includes("hundehoroskop") ||
+                    window.location.pathname.includes("hundehoroskop");
+    const brandName = isHunde ? "Hundehoroskop" : "Amastria";
+    const brandCookieName = isHunde ? "hundehoroskop_cookie_consent" : "cookie-consent";
+
+    const brandNameEl = document.getElementById("cookie-brand-name");
+    const brandNamePrefEl = document.getElementById("cookie-pref-brand-name");
+    if (brandNameEl) brandNameEl.textContent = brandName;
+    if (brandNamePrefEl) brandNamePrefEl.textContent = brandName;
+
     let consent = null;
     try {
-      consent = localStorage.getItem("cookie-consent");
+      consent = localStorage.getItem(brandCookieName);
     } catch (e) {
       console.warn("Could not read cookie-consent from localStorage:", e);
     }
 
+    // Initialize layout state classes
+    cookieBanner.className = "cookie-banner cookie-banner-bar";
+
     if (!consent) {
       setTimeout(() => {
         cookieBanner.style.display = "block";
-        // Trigger reflow for CSS transition
-        cookieBanner.offsetHeight;
+        cookieBanner.offsetHeight; // reflow
         cookieBanner.classList.add("show");
       }, 1000);
-    } else if (consent === "all") {
+    } else if (consent === "all" || consent === "analytics") {
       enableTracking();
     }
 
-    acceptAllBtn.addEventListener("click", () => {
-      try {
-        localStorage.setItem("cookie-consent", "all");
-      } catch (e) {
-        console.warn("Could not save cookie-consent to localStorage:", e);
-      }
+    const hideBanner = () => {
       cookieBanner.classList.remove("show");
+      if (backdrop) backdrop.style.display = "none";
       setTimeout(() => {
         cookieBanner.style.display = "none";
       }, 400);
+    };
+
+    acceptAllBtn.addEventListener("click", () => {
+      try {
+        localStorage.setItem(brandCookieName, "all");
+      } catch (e) {
+        console.warn("Could not save cookie-consent to localStorage:", e);
+      }
+      hideBanner();
       enableTracking();
     });
 
     acceptEssentialBtn.addEventListener("click", () => {
       try {
-        localStorage.setItem("cookie-consent", "essential");
+        localStorage.setItem(brandCookieName, "essential");
       } catch (e) {
         console.warn("Could not save cookie-consent to localStorage:", e);
       }
-      cookieBanner.classList.remove("show");
-      setTimeout(() => {
-        cookieBanner.style.display = "none";
-      }, 400);
+      hideBanner();
     });
+
+    if (adjustBtn && mainBar && preferencesPanel && backdrop) {
+      adjustBtn.addEventListener("click", () => {
+        // Switch to modal preference center view
+        mainBar.style.display = "none";
+        preferencesPanel.style.display = "block";
+        backdrop.style.display = "block";
+        
+        cookieBanner.classList.remove("cookie-banner-bar");
+        cookieBanner.classList.add("cookie-banner-modal");
+      });
+
+      if (prefBackBtn) {
+        prefBackBtn.addEventListener("click", () => {
+          // Switch back to bar view
+          mainBar.style.display = "flex";
+          preferencesPanel.style.display = "none";
+          backdrop.style.display = "none";
+          
+          cookieBanner.classList.remove("cookie-banner-modal");
+          cookieBanner.classList.add("cookie-banner-bar");
+        });
+      }
+
+      let analyticsEnabled = false;
+      if (analyticsToggle && analyticsCheckbox) {
+        analyticsToggle.addEventListener("click", () => {
+          analyticsEnabled = !analyticsEnabled;
+          if (analyticsEnabled) {
+            analyticsCheckbox.classList.add("checked");
+          } else {
+            analyticsCheckbox.classList.remove("checked");
+          }
+        });
+      }
+
+      if (prefSaveBtn) {
+        prefSaveBtn.addEventListener("click", () => {
+          const consentVal = analyticsEnabled ? "all" : "essential";
+          try {
+            localStorage.setItem(brandCookieName, consentVal);
+          } catch (e) {
+            console.warn("Could not save cookie-consent to localStorage:", e);
+          }
+          hideBanner();
+          if (analyticsEnabled) {
+            enableTracking();
+          }
+        });
+      }
+    }
   }
 
   // --- Mobile Navigation Toggle ---
