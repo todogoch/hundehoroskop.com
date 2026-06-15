@@ -3,9 +3,10 @@
  * Autor: Antigravity AI
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap');
 
 :root {
+  --font-open-sans: 'Open Sans', sans-serif;
   /* Farbpalette */
   --bg-space: #04060f;
   --bg-deep: #070919;
@@ -192,13 +193,12 @@ h2::after {
 }
 
 .nav-link {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Open Sans', var(--font-open-sans), sans-serif;
   color: var(--text-light);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 600;
   text-decoration: none;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.025em;
   transition: var(--transition);
   position: relative;
   padding: 8px 0;
