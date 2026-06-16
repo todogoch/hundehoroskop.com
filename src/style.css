@@ -2069,7 +2069,9 @@ footer p {
   position: absolute;
   top: 100%;
   left: 0;
-  right: 0;
+  min-width: 100%;
+  width: max-content;
+  max-width: 450px;
   background: rgba(11, 14, 38, 0.98);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -2081,6 +2083,13 @@ footer p {
   display: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .autocomplete-suggestions {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .autocomplete-suggestion-item {
@@ -2302,7 +2311,7 @@ footer p {
   bottom: auto;
   right: auto;
   width: 90%;
-  max-width: 460px;
+  max-width: 580px;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
