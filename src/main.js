@@ -1016,35 +1016,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- Cookie Consent Banner Logic ---
-  // --- Cookie Consent Banner Logic ---
-  const cookieBanner = document.getElementById("cookie-consent-banner");
-  const acceptAllBtn = document.getElementById("cookie-accept-all");
-  const acceptEssentialBtn = document.getElementById("cookie-accept-essential");
-  const adjustBtn = document.getElementById("cookie-btn-adjust");
-  
-  const mainBar = document.getElementById("cookie-main-bar");
-  const preferencesPanel = document.getElementById("cookie-preferences");
-  const backdrop = document.getElementById("cookie-backdrop");
-  
-  const prefBackBtn = document.getElementById("cookie-pref-back");
-  const prefSaveBtn = document.getElementById("cookie-pref-save");
-  const analyticsToggle = document.getElementById("pref-analytics-toggle");
-  const analyticsCheckbox = document.getElementById("analytics-checkbox");
+  // --- Cookie Consent Banner Logic (Premium namespaced version) ---
+  const cbWrapper = document.getElementById("premium-cookie-banner");
+  const cbBar = document.getElementById("premium-cookie-bar");
+  const cbModal = document.getElementById("premium-cookie-modal");
+  const cbBackdrop = document.getElementById("premium-cookie-backdrop");
 
-  if (cookieBanner) {
-    // Dynamic Brand Setting
+  const btnAdjust = document.getElementById("premium-cookie-btn-adjust");
+  const btnEssential = document.getElementById("premium-cookie-btn-essential");
+  const btnAccept = document.getElementById("premium-cookie-btn-accept");
+  
+  const btnBack = document.getElementById("premium-cookie-btn-back");
+  const btnSave = document.getElementById("premium-cookie-btn-save");
+  const optAnalytics = document.getElementById("premium-cookie-pref-analytics");
+  const chkAnalytics = document.getElementById("premium-cookie-analytics-checkbox");
+
+  if (cbWrapper && cbBar) {
     const isHunde = window.location.hostname.includes("hundehorosko") ||
                     window.location.hostname.includes("hundehorosop") ||
                     window.location.hostname.includes("hundehoroskop") ||
                     window.location.pathname.includes("hundehoroskop");
-    const brandName = isHunde ? "Hundehoroskop" : "Amastria";
     const brandCookieName = isHunde ? "hundehoroskop_cookie_consent" : "cookie-consent";
-
-    const brandNameEl = document.getElementById("cookie-brand-name");
-    const brandNamePrefEl = document.getElementById("cookie-pref-brand-name");
-    if (brandNameEl) brandNameEl.textContent = brandName;
-    if (brandNamePrefEl) brandNamePrefEl.textContent = brandName;
 
     let consent = null;
     try {
@@ -1053,95 +1045,105 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("Could not read cookie-consent from localStorage:", e);
     }
 
-    // Initialize layout state classes
-    cookieBanner.className = "cookie-banner cookie-banner-bar";
-
     if (!consent) {
       setTimeout(() => {
-        cookieBanner.style.display = "block";
-        cookieBanner.offsetHeight; // reflow
-        cookieBanner.classList.add("show");
+        cbWrapper.style.display = "block";
+        cbBar.style.display = "block";
+        cbBar.offsetHeight; // reflow
+        cbBar.classList.add("show");
       }, 1000);
     } else if (consent === "all" || consent === "analytics") {
       enableTracking();
     }
 
     const hideBanner = () => {
-      cookieBanner.classList.remove("show");
-      if (backdrop) backdrop.style.display = "none";
+      cbBar.classList.remove("show");
+      cbModal.classList.remove("show");
+      if (cbBackdrop) cbBackdrop.style.display = "none";
       setTimeout(() => {
-        cookieBanner.style.display = "none";
+        cbBar.style.display = "none";
+        cbModal.style.display = "none";
+        cbWrapper.style.display = "none";
       }, 400);
     };
 
-    acceptAllBtn.addEventListener("click", () => {
-      try {
-        localStorage.setItem(brandCookieName, "all");
-      } catch (e) {
-        console.warn("Could not save cookie-consent to localStorage:", e);
-      }
-      hideBanner();
-      enableTracking();
-    });
-
-    acceptEssentialBtn.addEventListener("click", () => {
-      try {
-        localStorage.setItem(brandCookieName, "essential");
-      } catch (e) {
-        console.warn("Could not save cookie-consent to localStorage:", e);
-      }
-      hideBanner();
-    });
-
-    if (adjustBtn && mainBar && preferencesPanel && backdrop) {
-      adjustBtn.addEventListener("click", () => {
-        // Switch to modal preference center view
-        mainBar.style.display = "none";
-        preferencesPanel.style.display = "block";
-        backdrop.style.display = "block";
-        
-        cookieBanner.classList.remove("cookie-banner-bar");
-        cookieBanner.classList.add("cookie-banner-modal");
+    if (btnAccept) {
+      btnAccept.addEventListener("click", () => {
+        try {
+          localStorage.setItem(brandCookieName, "all");
+        } catch (e) {
+          console.warn("Could not save cookie-consent to localStorage:", e);
+        }
+        hideBanner();
+        enableTracking();
       });
+    }
 
-      if (prefBackBtn) {
-        prefBackBtn.addEventListener("click", () => {
-          // Switch back to bar view
-          mainBar.style.display = "flex";
-          preferencesPanel.style.display = "none";
-          backdrop.style.display = "none";
-          
-          cookieBanner.classList.remove("cookie-banner-modal");
-          cookieBanner.classList.add("cookie-banner-bar");
-        });
-      }
+    if (btnEssential) {
+      btnEssential.addEventListener("click", () => {
+        try {
+          localStorage.setItem(brandCookieName, "essential");
+        } catch (e) {
+          console.warn("Could not save cookie-consent to localStorage:", e);
+        }
+        hideBanner();
+      });
+    }
 
-      let analyticsEnabled = false;
-      if (analyticsToggle && analyticsCheckbox) {
-        analyticsToggle.addEventListener("click", () => {
-          analyticsEnabled = !analyticsEnabled;
-          if (analyticsEnabled) {
-            analyticsCheckbox.classList.add("checked");
-          } else {
-            analyticsCheckbox.classList.remove("checked");
-          }
-        });
-      }
+    let analyticsEnabled = false;
 
-      if (prefSaveBtn) {
-        prefSaveBtn.addEventListener("click", () => {
-          const consentVal = analyticsEnabled ? "all" : "essential";
-          try {
-            localStorage.setItem(brandCookieName, consentVal);
-          } catch (e) {
-            console.warn("Could not save cookie-consent to localStorage:", e);
-          }
-          hideBanner();
-          if (analyticsEnabled) {
-            enableTracking();
-          }
-        });
-      }
+    if (btnAdjust && cbModal && cbBackdrop) {
+      btnAdjust.addEventListener("click", () => {
+        // Show backdrop and switch to modal view
+        cbBackdrop.style.display = "block";
+        cbModal.style.display = "block";
+        cbBar.classList.remove("show");
+        setTimeout(() => {
+          cbBar.style.display = "none";
+          cbModal.offsetHeight; // reflow
+          cbModal.classList.add("show");
+        }, 100);
+      });
+    }
+
+    if (btnBack && cbModal && cbBackdrop) {
+      btnBack.addEventListener("click", () => {
+        // Switch back to bar view
+        cbModal.classList.remove("show");
+        cbBackdrop.style.display = "none";
+        setTimeout(() => {
+          cbModal.style.display = "none";
+          cbBar.style.display = "block";
+          cbBar.offsetHeight; // reflow
+          cbBar.classList.add("show");
+        }, 150);
+      });
+    }
+
+    if (optAnalytics && chkAnalytics) {
+      optAnalytics.addEventListener("click", () => {
+        analyticsEnabled = !analyticsEnabled;
+        if (analyticsEnabled) {
+          chkAnalytics.classList.add("checked");
+        } else {
+          chkAnalytics.classList.remove("checked");
+        }
+      });
+    }
+
+    if (btnSave) {
+      btnSave.addEventListener("click", () => {
+        const consentVal = analyticsEnabled ? "all" : "essential";
+        try {
+          localStorage.setItem(brandCookieName, consentVal);
+        } catch (e) {
+          console.warn("Could not save cookie-consent to localStorage:", e);
+        }
+        hideBanner();
+        if (analyticsEnabled) {
+          enableTracking();
+        }
+      });
     }
   }
 

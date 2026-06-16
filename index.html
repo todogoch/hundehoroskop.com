@@ -1440,91 +1440,102 @@
     </div>
   </footer>
 
-  <!-- COOKIE CONSENT BANNER -->
-  <div id="cookie-consent-banner" class="cookie-banner" style="display: none;">
-    <!-- Main Bottom Bar View -->
-    <div class="cookie-bar-container" id="cookie-main-bar">
-      <div class="cookie-main-content">
-        <div class="cookie-info-section">
-          <!-- Shield Check Icon -->
-          <div class="cookie-shield-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z"/><path d="m9 12 2 2 4-4"/></svg>
+  <!-- PREMIUM COOKIE CONSENT BANNER -->
+  <div id="premium-cookie-banner" class="prem-cb-wrapper" style="display: none;">
+    <!-- Backdrop for Modal View -->
+    <div id="premium-cookie-backdrop" class="prem-cb-backdrop" style="display: none;"></div>
+
+    <!-- Bottom Bar Banner (Default view) -->
+    <div id="premium-cookie-bar" class="prem-cb-bar">
+      <!-- Gold top border line -->
+      <div class="prem-cb-gold-line"></div>
+      
+      <div class="prem-cb-bar-container">
+        <div class="prem-cb-bar-content">
+          <!-- Shield Info Area -->
+          <div class="prem-cb-info-area">
+            <div class="prem-cb-shield-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="prem-cb-text-area">
+              <h4 class="prem-cb-title">Kosmische Privatsphäre</h4>
+              <p class="prem-cb-desc">Um deine Reise durch die Sterne und deine Erfahrung auf Hundehoroskop stetig zu verfeinern, nutzen wir Cookies.</p>
+            </div>
           </div>
-          <div class="cookie-text-block">
-            <h4 class="cookie-title">Kosmische Privatsphäre</h4>
-            <p class="cookie-desc">
-              Um deine Reise durch die Sterne und deine Erfahrung auf <span id="cookie-brand-name">Hundehoroskop</span> stetig zu verfeinern, nutzen wir Cookies.
-            </p>
+          
+          <!-- Buttons Group -->
+          <div class="prem-cb-btn-group">
+            <button type="button" id="premium-cookie-btn-adjust" class="prem-cb-btn prem-cb-btn-adjust">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+              Anpassen
+            </button>
+            <button type="button" id="premium-cookie-btn-essential" class="prem-cb-btn prem-cb-btn-essential">Nur essenzielle</button>
+            <button type="button" id="premium-cookie-btn-accept" class="prem-cb-btn prem-cb-btn-accept">Alle akzeptieren</button>
           </div>
         </div>
         
-        <div class="cookie-btn-group">
-          <button type="button" class="cookie-btn cookie-btn-custom" id="cookie-btn-adjust">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-            Anpassen
-          </button>
-          <button type="button" class="cookie-btn cookie-btn-essential" id="cookie-accept-essential">Nur essenzielle</button>
-          <button type="button" class="cookie-btn cookie-btn-accept" id="cookie-accept-all">Alle akzeptieren</button>
+        <!-- Footer links inside bar -->
+        <div class="prem-cb-legal-footer">
+          <a href="/datenschutz.html" class="prem-cb-legal-link">DATENSCHUTZ</a>
+          <span class="prem-cb-legal-divider">•</span>
+          <a href="/impressum.html" class="prem-cb-legal-link">IMPRESSUM</a>
         </div>
-      </div>
-      
-      <!-- Minimalist Legal Links -->
-      <div class="cookie-legal-footer">
-        <a href="/datenschutz.html" class="cookie-legal-link">DATENSCHUTZ</a>
-        <span>•</span>
-        <a href="/impressum.html" class="cookie-legal-link">IMPRESSUM</a>
       </div>
     </div>
 
-    <!-- Preference Modal View -->
-    <div class="cookie-preferences-container" id="cookie-preferences" style="display: none;">
-      <div class="cookie-pref-header">
-        <div class="cookie-shield-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z"/><path d="m9 12 2 2 4-4"/></svg>
+    <!-- Preference Modal Dialog -->
+    <div id="premium-cookie-modal" class="prem-cb-modal" style="display: none;">
+      <!-- Gold top border line -->
+      <div class="prem-cb-gold-line"></div>
+      
+      <div class="prem-cb-modal-container">
+        <div class="prem-cb-modal-header">
+          <div class="prem-cb-shield-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div class="prem-cb-modal-header-text">
+            <h4 class="prem-cb-modal-title">Einstellungen zur Privatsphäre</h4>
+            <p class="prem-cb-modal-subtitle">Wähle aus, welche Cookies du zulassen möchtest. Essenzielle Cookies sind für den Betrieb der Seite erforderlich.</p>
+          </div>
         </div>
-        <div>
-          <h4 class="cookie-pref-title">Einstellungen zur Privatsphäre</h4>
-          <p class="cookie-pref-subtitle">Wähle aus, welche Cookies du zulassen möchtest. Essenzielle Cookies sind für den Betrieb der Seite erforderlich.</p>
-        </div>
-      </div>
 
-      <div class="cookie-pref-options">
-        <div class="cookie-pref-option-item">
-          <div class="cookie-pref-option-info">
-            <div class="cookie-pref-option-title-row">
-              <span class="cookie-pref-opt-title">Essenzielle Cookies</span>
-              <span class="cookie-pref-badge badge-required">Erforderlich</span>
+        <div class="prem-cb-modal-options">
+          <!-- Essential cookies option -->
+          <div class="prem-cb-option-item prem-cb-option-disabled">
+            <div class="prem-cb-option-info">
+              <div class="prem-cb-option-title-row">
+                <span class="prem-cb-option-title">Essenzielle Cookies</span>
+                <span class="prem-cb-option-badge badge-required">Erforderlich</span>
+              </div>
+              <p class="prem-cb-option-desc">Für die Funktion der Applikation, Authentifizierung und Sicherheit zwingend notwendig.</p>
             </div>
-            <p class="cookie-pref-opt-desc">Für die Funktion der Applikation, Authentifizierung und Sicherheit zwingend notwendig.</p>
-          </div>
-          <div class="cookie-pref-checkbox checked disabled">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
-          </div>
-        </div>
-
-        <div class="cookie-pref-option-item clickable" id="pref-analytics-toggle">
-          <div class="cookie-pref-option-info">
-            <div class="cookie-pref-option-title-row">
-              <span class="cookie-pref-opt-title">Analyse & Statistik (GA4)</span>
-              <span class="cookie-pref-badge badge-optional">Optional</span>
+            <div class="prem-cb-checkbox checked disabled">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
             </div>
-            <p class="cookie-pref-opt-desc">Ermöglicht uns, die Nutzung von <span id="cookie-pref-brand-name">Hundehoroskop</span> anonymisiert zu analysieren, um das Erlebnis stetig zu verbessern.</p>
           </div>
-          <div class="cookie-pref-checkbox" id="analytics-checkbox">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+
+          <!-- Analytics cookies option -->
+          <div id="premium-cookie-pref-analytics" class="prem-cb-option-item clickable">
+            <div class="prem-cb-option-info">
+              <div class="prem-cb-option-title-row">
+                <span class="prem-cb-option-title">Analyse & Statistik (GA4)</span>
+                <span class="prem-cb-option-badge badge-optional">Optional</span>
+              </div>
+              <p class="prem-cb-option-desc">Ermöglicht uns, die Nutzung von Hundehoroskop anonymisiert zu analysieren, um das Erlebnis stetig zu verbessern.</p>
+            </div>
+            <div id="premium-cookie-analytics-checkbox" class="prem-cb-checkbox">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="cookie-pref-buttons">
-        <button type="button" class="cookie-pref-btn cookie-pref-btn-back" id="cookie-pref-back">Zurück</button>
-        <button type="button" class="cookie-pref-btn cookie-pref-btn-save" id="cookie-pref-save">Auswahl speichern</button>
+        <div class="prem-cb-modal-buttons">
+          <button type="button" id="premium-cookie-btn-back" class="prem-cb-modal-btn prem-cb-modal-btn-back">Zurück</button>
+          <button type="button" id="premium-cookie-btn-save" class="prem-cb-modal-btn prem-cb-modal-btn-save">Auswahl speichern</button>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Backdrop for Modal View -->
-  <div id="cookie-backdrop" class="cookie-backdrop" style="display: none;"></div>
 
   <script type="module" src="/src/main.js"></script>
 </body>
