@@ -2069,9 +2069,9 @@ footer p {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 100%;
+  min-width: 450px;
   width: max-content;
-  max-width: 450px;
+  max-width: 550px;
   background: rgba(11, 14, 38, 0.98);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -2087,6 +2087,7 @@ footer p {
 
 @media (max-width: 600px) {
   .autocomplete-suggestions {
+    min-width: 100%;
     width: 100%;
     max-width: none;
   }
@@ -2311,11 +2312,11 @@ footer p {
   bottom: auto;
   right: auto;
   width: 90%;
-  max-width: 580px;
-  border-radius: 24px;
+  max-width: 650px;
+  border-radius: 32px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-  padding: 24px 32px;
+  padding: 32px 40px;
   background: rgba(10, 13, 26, 0.98);
 }
 
@@ -2514,12 +2515,11 @@ footer p {
 .cookie-pref-options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 24px;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 32px;
 }
 
 .cookie-pref-option-item {
@@ -2527,10 +2527,20 @@ footer p {
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  transition: var(--transition);
 }
 
 .cookie-pref-option-item.clickable {
   cursor: pointer;
+}
+
+.cookie-pref-option-item.clickable:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .cookie-pref-option-title-row {
@@ -2540,21 +2550,22 @@ footer p {
 }
 
 .cookie-pref-opt-title {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 650;
   color: #fff;
 }
 
 .cookie-pref-badge {
-  font-size: 9px;
-  font-family: monospace;
-  padding: 2px 6px;
+  font-size: 10px;
+  font-family: 'Outfit', sans-serif;
+  padding: 2px 8px;
   border-radius: 99px;
+  font-weight: 500;
 }
 
 .cookie-pref-badge.badge-required {
   background: rgba(255, 255, 255, 0.1);
-  color: rgba(148, 163, 184, 0.7);
+  color: rgba(148, 163, 184, 0.8);
 }
 
 .cookie-pref-badge.badge-optional {
@@ -2563,17 +2574,17 @@ footer p {
 }
 
 .cookie-pref-opt-desc {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: rgba(148, 163, 184, 0.65);
-  line-height: 1.4;
-  margin: 4px 0 0;
+  line-height: 1.5;
+  margin: 6px 0 0;
 }
 
 .cookie-pref-checkbox {
-  width: 20px;
-  height: 20px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2587,10 +2598,11 @@ footer p {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--bg-space);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
 }
 
 .cookie-pref-checkbox.disabled {
-  opacity: 0.6;
+  opacity: 0.7;
   background: transparent;
   border-color: rgba(255, 255, 255, 0.1);
   color: #10b981; /* checkmark color for required */
@@ -2607,13 +2619,15 @@ footer p {
 }
 
 .cookie-pref-btn {
-  padding: 10px 18px;
-  font-size: 0.82rem;
-  font-weight: 600;
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
   border-radius: 12px;
   cursor: pointer;
   transition: var(--transition);
   font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .cookie-pref-btn-back {
@@ -2626,6 +2640,7 @@ footer p {
 .cookie-pref-btn-back:hover {
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .cookie-pref-btn-save {
