@@ -1092,6 +1092,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let analyticsEnabled = false;
 
+    window.openCookieConsentBanner = () => {
+      const savedConsent = localStorage.getItem(brandCookieName);
+      if (savedConsent === "all") {
+        analyticsEnabled = true;
+        if (chkAnalytics) chkAnalytics.classList.add("checked");
+      } else {
+        analyticsEnabled = false;
+        if (chkAnalytics) chkAnalytics.classList.remove("checked");
+      }
+
+      cbWrapper.style.display = "block";
+      cbBar.style.display = "block";
+      cbBar.offsetHeight; // reflow
+      setTimeout(() => {
+        cbBar.classList.add("show");
+      }, 50);
+    };
+
     if (btnAdjust && cbModal && cbBackdrop) {
       btnAdjust.addEventListener("click", () => {
         // Show backdrop and switch to modal view
