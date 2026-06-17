@@ -2311,9 +2311,9 @@ footer p {
 .prem-cb-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(2, 4, 12, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 999998;
   pointer-events: auto;
 }
@@ -2321,17 +2321,17 @@ footer p {
 /* Bottom Bar - Floating Card Layout */
 .prem-cb-bar {
   position: fixed;
-  bottom: 24px;
+  bottom: 32px;
   left: 50%;
   transform: translate(-50%, 100px) scale(0.95);
-  width: 92%;
-  max-width: 960px;
-  border-radius: 28px;
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  background: rgba(7, 9, 22, 0.98);
+  width: 90%;
+  max-width: 1040px;
+  border-radius: 24px;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: linear-gradient(135deg, rgba(6, 8, 20, 0.98) 0%, rgba(13, 10, 36, 0.99) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(245, 158, 11, 0.08);
   overflow: hidden;
   z-index: 999999;
   pointer-events: auto;
@@ -2354,7 +2354,7 @@ footer p {
 }
 
 .prem-cb-bar-container {
-  padding: 28px 36px 20px;
+  padding: 36px 44px 28px;
 }
 
 .prem-cb-bar-content {
@@ -2362,26 +2362,27 @@ footer p {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 40px;
 }
 
 .prem-cb-info-area {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 20px;
   text-align: left;
 }
 
 .prem-cb-shield-icon {
-  padding: 12px;
-  background: rgba(245, 158, 11, 0.1);
+  padding: 14px;
+  background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.2);
   color: #f59e0b;
-  border-radius: 16px;
+  border-radius: 50%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);
 }
 
 .prem-cb-shield-icon svg {
@@ -2392,42 +2393,44 @@ footer p {
 .prem-cb-text-area {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .prem-cb-title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold-light);
   margin: 0;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 .prem-cb-desc {
-  font-size: 0.85rem;
-  color: #cbd5e1;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  color: rgba(248, 250, 252, 0.8);
+  line-height: 1.65;
   margin: 0;
   font-weight: 300;
-  max-width: 600px;
+  max-width: 620px;
 }
 
 .prem-cb-btn-group {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   align-items: center;
   flex-shrink: 0;
 }
 
 /* Spacious, High-Value Buttons */
 .prem-cb-btn {
-  padding: 12px 28px;
-  font-size: 0.85rem;
+  padding: 14px 30px;
+  font-size: 0.82rem;
   font-weight: 600;
+  line-height: 1;
   border-radius: 9999px;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.05em;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.08em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2438,17 +2441,17 @@ footer p {
 }
 
 .prem-cb-btn:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
 }
 
 .prem-cb-btn:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
 .prem-cb-btn-adjust {
-  background: transparent;
+  background: rgba(245, 158, 11, 0.03);
   border: 1px solid rgba(245, 158, 11, 0.35);
-  color: #fef08a;
+  color: var(--gold-light);
 }
 
 .prem-cb-btn-adjust svg {
@@ -2458,18 +2461,20 @@ footer p {
 
 .prem-cb-btn-adjust:hover {
   border-color: #f59e0b;
-  background: rgba(245, 158, 11, 0.05);
+  background: rgba(245, 158, 11, 0.08);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
 }
 
 .prem-cb-btn-essential {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #cbd5e1;
+  color: var(--text-muted);
 }
 
 .prem-cb-btn-essential:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
 }
 
@@ -2478,24 +2483,24 @@ footer p {
   color: #04060f;
   border: none;
   font-weight: 700;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
 }
 
 .prem-cb-btn-accept:hover {
-  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45);
 }
 
 .prem-cb-legal-footer {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.15em;
-  color: rgba(203, 213, 225, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: 16px;
-  padding-top: 12px;
-  justify-content: flex-start;
+  color: rgba(203, 213, 225, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 24px;
+  padding-top: 16px;
+  justify-content: center;
 }
 
 .prem-cb-legal-link {
@@ -2519,18 +2524,18 @@ footer p {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.95);
   width: 90%;
-  max-width: 650px;
-  border-radius: 32px;
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  background: rgba(7, 9, 22, 0.99);
+  max-width: 680px;
+  border-radius: 28px;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: linear-gradient(135deg, rgba(6, 8, 20, 0.99) 0%, rgba(13, 10, 36, 1) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(245, 158, 11, 0.08);
   overflow: hidden;
   z-index: 999999;
   pointer-events: auto;
   opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .prem-cb-modal.show {
@@ -2539,13 +2544,13 @@ footer p {
 }
 
 .prem-cb-modal-container {
-  padding: 36px 40px;
+  padding: 40px 48px;
 }
 
 .prem-cb-modal-header {
   display: flex;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 20px;
+  margin-bottom: 32px;
   align-items: flex-start;
   text-align: left;
 }
@@ -2553,20 +2558,21 @@ footer p {
 .prem-cb-modal-header-text {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .prem-cb-modal-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-light);
   margin: 0;
 }
 
 .prem-cb-modal-subtitle {
-  font-size: 0.85rem;
-  color: #cbd5e1;
-  line-height: 1.5;
+  font-size: 0.88rem;
+  color: rgba(248, 250, 252, 0.8);
+  line-height: 1.55;
   margin: 0;
   font-weight: 300;
 }
@@ -2575,18 +2581,18 @@ footer p {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .prem-cb-option-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 16px;
+  gap: 20px;
   background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  padding: 20px 24px;
+  padding: 24px 28px;
   transition: all 0.2s ease;
   text-align: left;
 }
@@ -2603,27 +2609,28 @@ footer p {
 .prem-cb-option-info {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .prem-cb-option-title-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .prem-cb-option-title {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
 }
 
 .prem-cb-option-badge {
-  font-size: 10px;
-  padding: 2.5px 10px;
+  font-size: 9px;
+  padding: 3px 12px;
   border-radius: 99px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .prem-cb-option-badge.badge-required {
@@ -2637,18 +2644,18 @@ footer p {
 }
 
 .prem-cb-option-desc {
-  font-size: 0.8rem;
-  color: #cbd5e1;
-  line-height: 1.55;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
   margin: 0;
   font-weight: 300;
 }
 
 .prem-cb-checkbox {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2662,11 +2669,11 @@ footer p {
   background: #f59e0b;
   border-color: #f59e0b;
   color: #04060f;
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
 }
 
 .prem-cb-checkbox.disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   background: transparent;
   border-color: rgba(255, 255, 255, 0.15);
   color: #10b981;
@@ -2675,22 +2682,23 @@ footer p {
 .prem-cb-checkbox svg {
   width: 14px;
   height: 14px;
-  stroke-width: 3;
+  stroke-width: 3.5;
 }
 
 .prem-cb-modal-buttons {
   display: flex;
-  gap: 12px;
+  gap: 16px;
 }
 
 .prem-cb-modal-btn {
-  padding: 14px 24px;
-  font-size: 0.8rem;
+  padding: 16px 28px;
+  font-size: 0.82rem;
   font-weight: 600;
+  line-height: 1;
   border-radius: 9999px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  letter-spacing: 0.05em;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.08em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2698,17 +2706,25 @@ footer p {
   text-transform: uppercase;
 }
 
+.prem-cb-modal-btn:hover {
+  transform: translateY(-2px);
+}
+
+.prem-cb-modal-btn:active {
+  transform: translateY(0);
+}
+
 .prem-cb-modal-btn-back {
   flex: 1;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text-muted);
 }
 
 .prem-cb-modal-btn-back:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .prem-cb-modal-btn-save {
@@ -2717,12 +2733,11 @@ footer p {
   color: #04060f;
   border: none;
   font-weight: 700;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
 }
 
 .prem-cb-modal-btn-save:hover {
-  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
-  transform: scale(1.01);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45);
 }
 
 /* Responsiveness overrides to prevent squishing */
@@ -2730,7 +2745,7 @@ footer p {
   .prem-cb-bar-content {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 28px;
   }
   .prem-cb-btn-group {
     width: 100%;
@@ -2740,11 +2755,15 @@ footer p {
   }
   .prem-cb-btn {
     width: 100%;
-    padding: 14px 24px; /* Spacious on mobile */
+    padding: 16px 28px;
   }
   .prem-cb-legal-footer {
     width: 100%;
     justify-content: center;
+    margin-top: 28px;
+  }
+  .prem-cb-modal-container {
+    padding: 32px 28px;
   }
 }
 
@@ -2752,15 +2771,17 @@ footer p {
   .prem-cb-bar {
     bottom: 16px;
     width: 94%;
+    border-radius: 20px;
   }
   .prem-cb-bar-container {
-    padding: 24px 24px 16px;
+    padding: 28px 28px 20px;
   }
   .prem-cb-modal-container {
-    padding: 28px 24px;
+    padding: 28px 20px;
   }
   .prem-cb-option-item {
-    padding: 16px;
+    padding: 18px 20px;
+    gap: 12px;
   }
 }
 
